@@ -34,13 +34,13 @@ body {
 .flow-row { display: flex; align-items: stretch; gap: 0; flex: 1; min-height: 0; }
 
 /* Flow arrow */
-.farr { display: flex; align-items: center; padding: 0 6px; color: var(--dimmed); font-size: 16px; flex-shrink: 0; }
+.farr { display: flex; align-items: center; padding: 0 4px; color: var(--dimmed); font-size: 16px; flex-shrink: 0; }
 
 /* Intake node */
 .node-intake {
   background: var(--surf); border: 1px solid var(--border); border-radius: 6px;
-  padding: 14px 14px; display: flex; flex-direction: column; justify-content: center;
-  width: 118px; flex-shrink: 0;
+  padding: 14px 12px; display: flex; flex-direction: column; justify-content: center;
+  width: 112px; flex-shrink: 0;
 }
 
 /* New boundary — wraps Task Engine + Tasks + Assembly */
@@ -60,12 +60,12 @@ body {
 /* Task Engine */
 .node-engine {
   background: var(--navy); color: #fff; border-radius: 6px;
-  padding: 14px 14px; display: flex; flex-direction: column; justify-content: center;
-  width: 165px; flex-shrink: 0;
+  padding: 14px 12px; display: flex; flex-direction: column; justify-content: center;
+  width: 150px; flex-shrink: 0;
 }
 
 /* Tasks (digital + manual stacked) */
-.node-tasks { display: flex; flex-direction: column; gap: 6px; justify-content: center; width: 208px; flex-shrink: 0; }
+.node-tasks { display: flex; flex-direction: column; gap: 6px; justify-content: center; width: 200px; flex-shrink: 0; }
 .task-digital {
   flex: 1; background: var(--primary); border-radius: 5px;
   padding: 10px 12px; display: flex; flex-direction: column; justify-content: center;
@@ -78,15 +78,15 @@ body {
 /* Assembly */
 .node-assembly {
   background: var(--primary); color: #fff; border-radius: 6px;
-  padding: 14px 14px; display: flex; flex-direction: column; justify-content: center;
-  width: 150px; flex-shrink: 0;
+  padding: 14px 12px; display: flex; flex-direction: column; justify-content: center;
+  width: 130px; flex-shrink: 0;
 }
 
 /* QC and Delivery */
 .node-qc, .node-delivery {
   background: var(--surf); border: 1px solid var(--border); border-radius: 6px;
-  padding: 14px 12px; display: flex; flex-direction: column; justify-content: center;
-  width: 100px; flex-shrink: 0;
+  padding: 14px 10px; display: flex; flex-direction: column; justify-content: center;
+  width: 90px; flex-shrink: 0;
 }
 
 /* Node text styles */

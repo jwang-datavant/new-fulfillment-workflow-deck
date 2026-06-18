@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slide 3 — The Problem (Designer)</title>
+<title>Slide 3 — The Problem</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -11,14 +11,7 @@
 :root {
   --primary: #2945f0; --body: #020202; --dimmed: #687382;
   --border: #c2c7ce; --surf: #f2f3f8;
-  --today-red: #c0392b;
-  --green-bg: #dcfce7; --green-text: #166534; --green-border: #86efac;
-  --step-blue: #dbeafe; --step-blue-t: #1e40af;
-  --step-yel:  #fef9c3; --step-yel-t:  #92400e;
-  --step-grn:  #dcfce7; --step-grn-t:  #166534;
-  --step-pink: #fce7f3; --step-pink-t: #9d174d;
-  --rep-bg: #7c2d12;
-  --warn-border: #e97316; --warn-bg: #fffbf5;
+  --red: #cc3300; --red-lt: #fff1ef;
 }
 body {
   font-family: 'Geist', sans-serif; background: #0d0d1a;
@@ -30,104 +23,109 @@ body {
   width: 960px; height: 540px; background: #fff; position: relative;
   border-radius: 4px; box-shadow: 0 8px 48px rgba(0,0,0,0.55);
   overflow: hidden; padding: 18px 24px 10px;
-  display: flex; flex-direction: column; gap: 6px;
+  display: flex; flex-direction: column; gap: 7px;
 }
-.slide-lbl { font-size: 10px; color: var(--primary); letter-spacing: 0.3px; }
-.h1 { font-size: 18px; font-weight: 600; color: var(--body); line-height: 1.2; }
-.subtitle { font-size: 10px; color: var(--dimmed); line-height: 1.5; border-left: 3px solid var(--today-red); padding-left: 9px; }
-.subtitle strong { color: #7f1d1d; font-weight: 600; }
+.slide-lbl { font-size: 10px; color: var(--red); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; }
+.h1 { font-size: 17px; font-weight: 600; color: var(--body); line-height: 1.2; }
+.subtitle { font-size: 9.5px; color: var(--dimmed); line-height: 1.5; border-left: 3px solid var(--red); padding-left: 8px; }
+.subtitle strong { color: var(--red); font-weight: 600; }
 
-/* Example strip */
-.example-strip {
-  background: var(--surf); border: 1px solid var(--border); border-radius: 4px;
-  padding: 8px 14px; display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+/* Request strip */
+.request-strip {
+  flex-shrink: 0; background: var(--surf); border: 1px solid var(--border);
+  border-radius: 4px; padding: 6px 12px;
+  display: flex; align-items: center; gap: 10px;
 }
-.ex-label { font-size: 9px; font-weight: 600; color: var(--dimmed); white-space: nowrap; flex-shrink: 0; }
-.ex-div { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
-.ex-sys {
-  font-size: 8.5px; display: flex; flex-direction: column; gap: 3px;
-  background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px;
-}
-.ex-sys-name { font-weight: 600; color: var(--body); }
-.ex-sys-tasks { display: flex; gap: 3px; }
-.tp { font-size: 7.5px; padding: 1px 5px; border-radius: 3px; font-weight: 500; white-space: nowrap; }
-.tp.d { background: var(--step-blue); color: var(--step-blue-t); }
-.tp.m { background: var(--step-yel); color: var(--step-yel-t); }
+.req-label { font-size: 8.5px; font-weight: 700; color: var(--dimmed); text-transform: uppercase; letter-spacing: 0.08em; flex-shrink: 0; }
+.req-patient { font-size: 9px; color: var(--body); font-weight: 600; flex-shrink: 0; }
+.req-desc { font-size: 8.5px; color: var(--dimmed); }
+.req-div { width: 1px; height: 20px; background: var(--border); flex-shrink: 0; }
+.req-systems { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+.req-sys { font-size: 8px; font-weight: 600; color: var(--body); background: #fff; border: 1px solid var(--border); border-radius: 3px; padding: 2px 7px; white-space: nowrap; }
 
-/* Main diagram */
-.diagram { flex: 1; min-height: 0; display: flex; gap: 8px; align-items: stretch; }
-
-/* Greyed prior steps */
-.prior-steps { display: flex; gap: 4px; align-items: center; opacity: 0.45; flex-shrink: 0; }
-.prior-col { display: flex; flex-direction: column; gap: 3px; width: 80px; }
-.prior-lbl { font-size: 7.5px; font-weight: 600; color: var(--dimmed); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 1px; }
-.prior-box { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 3px; padding: 4px 6px; font-size: 7px; color: #475569; text-align: center; line-height: 1.3; }
-.prior-arr { font-size: 12px; color: #ccc; }
-
-/* Divider into fulfillment */
-.section-div { width: 1px; background: var(--border); flex-shrink: 0; margin: 8px 0; }
-
-/* Fulfillment section */
-.fulfillment { flex: 1; display: flex; gap: 8px; align-items: stretch; }
-.ful-col { display: flex; flex-direction: column; gap: 4px; }
-.ful-arr { font-size: 13px; color: #aaa; display: flex; align-items: center; }
-.ful-lbl { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 2px; }
-
-/* Digital block */
-.digital-block {
-  background: var(--green-bg); border: 1px solid var(--green-border);
-  border-radius: 5px; padding: 10px 12px; display: flex; flex-direction: column; gap: 3px; flex-shrink: 0;
-}
-.dig-title { font-size: 12px; font-weight: 600; color: var(--green-text); }
-.dig-desc  { font-size: 10px; color: var(--green-text); opacity: 0.8; }
-.dig-time  { font-size: 18px; font-weight: 700; color: var(--green-text); line-height: 1.1; margin-top: 3px; }
-
-/* Repeating manual blocks */
-.rep-block {
-  flex: 1; border: 1.5px dashed var(--warn-border); border-radius: 5px;
-  background: var(--warn-bg); overflow: hidden; display: flex; flex-direction: column;
-}
-.rep-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 6px 10px; background: #fff7ed; border-bottom: 1px solid #fed7aa;
-}
-.rep-title { font-size: 11px; font-weight: 600; color: var(--body); }
-.rep-badge {
-  font-size: 9px; font-weight: 700; color: #fff;
-  background: var(--rep-bg); padding: 2px 7px; border-radius: 3px; letter-spacing: 0.03em;
-}
-.rep-steps { padding: 6px 8px; display: flex; flex-direction: column; gap: 3px; flex: 1; }
-.step { font-size: 10.5px; padding: 4px 9px; border-radius: 3px; line-height: 1.3; }
-.step.bl   { background: var(--step-blue); color: var(--step-blue-t); }
-.step.yel  { background: var(--step-yel);  color: var(--step-yel-t); }
-.step.grn  { background: var(--step-grn);  color: var(--step-grn-t); }
-.step.pink { background: var(--step-pink); color: var(--step-pink-t); }
-.rep-footer {
-  font-size: 11px; font-weight: 700; color: var(--today-red);
-  text-align: right; padding: 5px 10px; background: #fff7ed; border-top: 1px solid #fed7aa;
-}
-.rep-note {
-  font-size: 9px; color: var(--today-red); font-style: italic; font-weight: 500;
-  text-align: center; padding: 4px 8px;
+/* Flow row */
+.flow-row {
+  flex: 1; min-height: 0;
+  display: flex; align-items: stretch; gap: 0;
 }
 
-/* QC/Delivery greyed */
-.after-col { opacity: 0.45; display: flex; flex-direction: column; gap: 3px; width: 72px; flex-shrink: 0; }
+/* Worker badge */
+.worker-badge {
+  flex-shrink: 0; width: 52px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; margin-right: 4px;
+}
+.wb-icon { font-size: 22px; line-height: 1; }
+.wb-name { font-size: 9px; font-weight: 700; color: var(--body); text-align: center; }
+.wb-sub  { font-size: 7.5px; color: var(--red); text-align: center; line-height: 1.3; font-weight: 500; }
 
-/* Stats bar */
-.stats-bar {
-  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 7px; flex-shrink: 0;
+/* Step cards */
+.steps-wrap { flex: 1; display: flex; align-items: stretch; gap: 0; }
+
+.step-card {
+  flex: 1; border-radius: 6px; padding: 10px 11px;
+  display: flex; flex-direction: column; gap: 4px;
 }
-.stat-card {
-  border-radius: 4px; padding: 7px 10px; display: flex; flex-direction: column; gap: 1px;
-  background: var(--surf); border: 1px solid var(--border); border-left-width: 3px;
+.sc-cerner  { background: #1e3a5f; }
+.sc-epic    { background: #1a1a2e; }
+.sc-pm      { background: #374151; }
+.sc-imaging { background: #7c2d12; }
+.sc-archival{ background: #44403c; }
+
+.sc-sys  { font-size: 11px; font-weight: 700; color: #fff; line-height: 1.1; }
+.sc-date { font-size: 7.5px; color: rgba(255,255,255,0.45); margin-bottom: 2px; }
+
+.sc-type {
+  font-size: 7px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 1px 5px; border-radius: 2px; align-self: flex-start; margin-bottom: 1px;
 }
-.sc-num { font-size: 14px; font-weight: 400; line-height: 1.1; }
-.sc-desc { font-size: 8px; color: var(--body); line-height: 1.4; }
-.c-teal   { border-left-color: #0d5c63; } .c-teal   .sc-num { color: #0d5c63; }
-.c-warn   { border-left-color: #f59e0b; } .c-warn   .sc-num { color: #b45309; }
-.c-red    { border-left-color: #cc3300; } .c-red    .sc-num { color: #cc3300; }
-.c-orange { border-left-color: #ea580c; } .c-orange .sc-num { color: #ea580c; }
+.type-digital  { background: rgba(41,69,240,0.35); color: #93c5fd; }
+.type-physical { background: rgba(239,68,68,0.35); color: #fca5a5; }
+.type-offsite  { background: rgba(245,158,11,0.3); color: #fcd34d; }
+
+.sc-steps { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.sc-step {
+  font-size: 8.5px; color: rgba(255,255,255,0.85); line-height: 1.3;
+  padding: 3px 7px; border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  display: flex; align-items: flex-start; gap: 4px;
+}
+.sc-step-icon { flex-shrink: 0; opacity: 0.7; }
+
+.sc-time {
+  font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5);
+  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 5px; margin-top: auto;
+}
+.sc-time.warn { color: #fca5a5; font-size: 12px; }
+
+/* Context switch connector */
+.ctx { flex-shrink: 0; width: 34px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+.ctx-arr { font-size: 11px; color: var(--red); font-weight: 700; }
+.ctx-lbl { font-size: 6.5px; font-weight: 700; color: var(--red); text-align: center; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.3; }
+.ctx.walk .ctx-arr { color: #b45309; }
+.ctx.walk .ctx-lbl { color: #b45309; }
+
+/* Entry arrow */
+.entry-arr { flex-shrink: 0; width: 28px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--border); }
+
+/* Repeat callout */
+.repeat-end {
+  flex-shrink: 0; width: 58px; margin-left: 4px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  border: 2px dashed var(--red); border-radius: 5px; padding: 6px 4px;
+}
+.re-label { font-size: 7.5px; font-weight: 700; color: var(--red); text-align: center; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.3; }
+.re-sub   { font-size: 7px; color: var(--dimmed); text-align: center; line-height: 1.3; }
+
+/* Pain bar */
+.pain-bar { flex-shrink: 0; display: flex; gap: 6px; }
+.pain-card {
+  flex: 1; border-radius: 4px; padding: 6px 10px;
+  background: var(--red-lt); border: 1px solid #fecdc8; border-left: 3px solid var(--red);
+  display: flex; flex-direction: column; gap: 1px;
+}
+.pain-lbl  { font-size: 9.5px; font-weight: 600; color: var(--red); }
+.pain-desc { font-size: 8px; color: #7f2f20; line-height: 1.35; }
 
 .wordmark { position: absolute; bottom: 7px; right: 18px; font-size: 10px; color: var(--dimmed); }
 </style>
@@ -136,129 +134,150 @@ body {
 <div class="page-label">Slide 3 — The Problem</div>
 <div class="slide">
 
-  <div style="display:flex;flex-direction:column;gap:3px;">
+  <div style="display:flex;flex-direction:column;gap:3px;flex-shrink:0;">
     <div class="slide-lbl">The Problem</div>
-    <div class="h1">Today's Fulfillment Is Sequential — Same Steps Repeated at Every Stage</div>
-    <div class="subtitle">One request splits into tasks across multiple systems. <strong>Every manual stage repeats the same logging, auth, and retrieval steps from scratch.</strong> Digital fulfillment helps — but partial requests negate those savings.</div>
-  </div>
-
-  <div class="example-strip">
-    <div style="display:flex;flex-direction:column;gap:1px;flex-shrink:0;">
-      <div class="ex-label">Example request</div>
-      <div style="font-size:9.5px;color:var(--body);line-height:1.4;max-width:230px;"><strong>Bomi Kim</strong>, 01/01/1990 — Itemized Bill, MRI CD, Radiology, Progress notes, Mammography (1990–present)</div>
-    </div>
-    <div style="font-size:14px;color:var(--dimmed);flex-shrink:0;">→</div>
-    <div class="ex-label" style="flex-shrink:0;">Splits across 5 systems:</div>
-    <div class="ex-div"></div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
-      <div class="ex-sys"><div class="ex-sys-name">Epic <span style="font-weight:400;color:var(--dimmed)">2025–now</span></div><div class="ex-sys-tasks"><span class="tp d">↓ Radiology</span><span class="tp m">✋ Mammo</span></div></div>
-      <div class="ex-sys"><div class="ex-sys-name">Cerner <span style="font-weight:400;color:var(--dimmed)">2021–2025</span></div><div class="ex-sys-tasks"><span class="tp d">↓ Radiology</span><span class="tp m">✋ Mammo</span><span class="tp m">✋ Cardio</span></div></div>
-      <div class="ex-sys"><div class="ex-sys-name">PACS</div><div class="ex-sys-tasks"><span class="tp m">✋ MRI CD</span></div></div>
-      <div class="ex-sys"><div class="ex-sys-name">Iron Mtn</div><div class="ex-sys-tasks"><span class="tp m">✋ 1990–2021</span></div></div>
-      <div class="ex-sys"><div class="ex-sys-name">PM System</div><div class="ex-sys-tasks"><span class="tp m">✋ Bill</span></div></div>
+    <div class="h1">One Request. Five Systems. One Person Doing It All — Sequentially.</div>
+    <div class="subtitle">
+      Today, a single worker must be trained on 5 different systems and context-switch between all of them to fulfill one request.
+      <strong>Every login, every walk across the hospital, every phone call to retrieve records — all on one person, one task at a time.</strong>
     </div>
   </div>
 
-  <div class="diagram">
+  <div class="request-strip">
+    <div class="req-label">Example request</div>
+    <div class="req-patient">Bomi Kim, 01/01/1990</div>
+    <div class="req-desc">— Itemized bill, progress notes, radiology images, mammography (1990–present)</div>
+    <div class="req-div"></div>
+    <div class="req-label">Spans 5 systems:</div>
+    <div class="req-systems">
+      <div class="req-sys">Cerner</div>
+      <div class="req-sys">Epic</div>
+      <div class="req-sys">PM System</div>
+      <div class="req-sys">Imaging System</div>
+      <div class="req-sys">Archival System</div>
+    </div>
+  </div>
 
-    <!-- Prior steps (greyed) -->
-    <div class="prior-steps">
-      <div class="prior-col">
-        <div class="prior-lbl">Intake</div>
-        <div class="prior-box">STORK scrapes 85%</div>
-        <div class="prior-box">Manual via scanner</div>
-      </div>
-      <div class="prior-arr">›</div>
-      <div class="prior-col">
-        <div class="prior-lbl">Logging</div>
-        <div class="prior-box">Validate logging</div>
-        <div class="prior-box">Manually log remaining</div>
-      </div>
-      <div class="prior-arr">›</div>
-      <div class="prior-col">
-        <div class="prior-lbl">Auth Review</div>
-        <div class="prior-box">Validate logging</div>
-        <div class="prior-box">Manually log remaining</div>
-        <div class="prior-box">Confirm authorizations</div>
-        <div style="font-size:6.5px;color:#aaa;font-style:italic;text-align:center;margin-top:2px;">ROI Automation phases 1–3</div>
-      </div>
-      <div class="prior-arr">›</div>
+  <div class="flow-row">
+
+    <div class="worker-badge">
+      <div class="wb-icon">👤</div>
+      <div class="wb-name">1 Worker</div>
+      <div class="wb-sub">trained on all 5</div>
     </div>
 
-    <div class="section-div"></div>
+    <div class="entry-arr">→</div>
 
-    <!-- Fulfillment — the focus -->
-    <div class="fulfillment">
+    <div class="steps-wrap">
 
-      <!-- Digital block -->
-      <div class="ful-col" style="width:130px;flex-shrink:0;">
-        <div class="ful-lbl" style="color:#166534;">Digital Fulfillment</div>
-        <div class="digital-block" style="flex:1;">
-          <div class="dig-title">Integrations retrieve records automatically</div>
-          <div class="dig-time">0 min</div>
-          <div class="dig-desc">No manual steps for digital-eligible tasks</div>
+      <div class="step-card sc-cerner">
+        <div class="sc-sys">Cerner</div>
+        <div class="sc-date">Records 2021–2025</div>
+        <div class="sc-type type-digital">Digital</div>
+        <div class="sc-steps">
+          <div class="sc-step"><span class="sc-step-icon">⌨</span>Login to Cerner</div>
+          <div class="sc-step"><span class="sc-step-icon">⬇</span>Retrieve records</div>
+          <div class="sc-step"><span class="sc-step-icon">⬆</span>Upload to portal</div>
         </div>
+        <div class="sc-time">Multiple steps</div>
       </div>
 
-      <div class="ful-arr">›</div>
+      <div class="ctx">
+        <div class="ctx-arr">⇄</div>
+        <div class="ctx-lbl">logout &amp; switch</div>
+      </div>
 
-      <!-- Manual Fulfillment -->
-      <div class="ful-col" style="flex:1;">
-        <div class="ful-lbl" style="color:#e97316;">Manual Fulfillment</div>
-        <div class="rep-block">
-          <div class="rep-header">
-            <span class="rep-title">Manual Fulfillment</span>
-            <span class="rep-badge">REPEATS ↑↑</span>
-          </div>
-          <div class="rep-steps">
-            <div class="step bl">Validate logging</div>
-            <div class="step yel">Manually log remaining fields</div>
-            <div class="step grn">Confirm auth</div>
-            <div class="step pink">Manually retrieve records</div>
-          </div>
-          <div class="rep-footer">6.9 min ≈ manual</div>
+      <div class="step-card sc-epic">
+        <div class="sc-sys">Epic</div>
+        <div class="sc-date">Records 2025–now</div>
+        <div class="sc-type type-digital">Digital</div>
+        <div class="sc-steps">
+          <div class="sc-step"><span class="sc-step-icon">⌨</span>Login to Epic</div>
+          <div class="sc-step"><span class="sc-step-icon">⬇</span>Retrieve records</div>
+          <div class="sc-step"><span class="sc-step-icon">⬆</span>Upload to portal</div>
         </div>
+        <div class="sc-time">Multiple steps</div>
       </div>
 
-      <div class="ful-arr">›</div>
+      <div class="ctx">
+        <div class="ctx-arr">⇄</div>
+        <div class="ctx-lbl">logout &amp; switch</div>
+      </div>
 
-      <!-- Partial Fulfillment -->
-      <div class="ful-col" style="flex:1;">
-        <div class="ful-lbl" style="color:#c0392b;">Partial Fulfillment</div>
-        <div class="rep-block">
-          <div class="rep-header">
-            <span class="rep-title">Partial Fulfillment</span>
-            <span class="rep-badge">REPEATS ↑↑↑</span>
-          </div>
-          <div class="rep-steps">
-            <div class="step bl">Validate logging</div>
-            <div class="step yel">Manually log remaining fields</div>
-            <div class="step grn">Confirm auth</div>
-            <div class="step pink">Manually retrieve records</div>
-          </div>
-          <div class="rep-footer">7.07 min ≈ manual</div>
+      <div class="step-card sc-pm">
+        <div class="sc-sys">PM System</div>
+        <div class="sc-date">Billing records</div>
+        <div class="sc-type type-digital">Digital</div>
+        <div class="sc-steps">
+          <div class="sc-step"><span class="sc-step-icon">⌨</span>Login to PM System</div>
+          <div class="sc-step"><span class="sc-step-icon">⬇</span>Retrieve itemized bill</div>
+          <div class="sc-step"><span class="sc-step-icon">⬆</span>Upload to portal</div>
         </div>
-        <div class="rep-note">Same steps at every stage — for every system the request touches</div>
+        <div class="sc-time">Multiple steps</div>
       </div>
 
-      <div class="ful-arr">›</div>
-
-      <!-- QC + Delivery greyed -->
-      <div class="after-col" style="margin-top:14px;">
-        <div class="prior-lbl">QC / Delivery</div>
-        <div class="prior-box">VerifyAssist</div>
-        <div class="prior-box">AutoFax / email</div>
+      <div class="ctx walk">
+        <div class="ctx-arr">🚶</div>
+        <div class="ctx-lbl">leave desk &amp; walk</div>
       </div>
 
+      <div class="step-card sc-imaging">
+        <div class="sc-sys">Imaging System</div>
+        <div class="sc-date">Radiology dept</div>
+        <div class="sc-type type-physical">Physical</div>
+        <div class="sc-steps">
+          <div class="sc-step"><span class="sc-step-icon">🚶</span>Walk across hospital</div>
+          <div class="sc-step"><span class="sc-step-icon">⏳</span>Wait for department</div>
+          <div class="sc-step"><span class="sc-step-icon">🚶</span>Walk back to desk</div>
+        </div>
+        <div class="sc-time warn">Up to 30 min</div>
+      </div>
+
+      <div class="ctx walk">
+        <div class="ctx-arr">⇄</div>
+        <div class="ctx-lbl">call out &amp; wait</div>
+      </div>
+
+      <div class="step-card sc-archival">
+        <div class="sc-sys">Archival System</div>
+        <div class="sc-date">Records 1990–2021</div>
+        <div class="sc-type type-offsite">Off-site</div>
+        <div class="sc-steps">
+          <div class="sc-step"><span class="sc-step-icon">📞</span>Call to request boxes</div>
+          <div class="sc-step"><span class="sc-step-icon">📦</span>Wait for delivery</div>
+          <div class="sc-step"><span class="sc-step-icon">🔍</span>Search 30 yrs of records</div>
+        </div>
+        <div class="sc-time warn">Hours to days</div>
+      </div>
+
+    </div>
+
+    <div class="entry-arr" style="font-size:11px;">→</div>
+
+    <div class="repeat-end">
+      <div class="re-label">Repeat for every request</div>
+      <div class="re-sub">same steps, every time, one patient at a time</div>
     </div>
 
   </div>
 
-  <div class="stats-bar">
-    <div class="stat-card c-teal"><div class="sc-num">6.9 min</div><div class="sc-desc">avg manual fulfillment — largest human time sink per request</div></div>
-    <div class="stat-card c-warn"><div class="sc-num">≈ 0 min saved</div><div class="sc-desc">partial fulfillment (7.07 min) saves no time vs manual (6.9 min)</div></div>
-    <div class="stat-card c-red"><div class="sc-num">23.5%</div><div class="sc-desc">of digital requests fall into partial — zero efficiency gain</div></div>
-    <div class="stat-card c-orange"><div class="sc-num">54.5%</div><div class="sc-desc">of partial are false partial — digital records retrieved, then redone manually</div></div>
+  <div class="pain-bar">
+    <div class="pain-card">
+      <div class="pain-lbl">5 System Logins</div>
+      <div class="pain-desc">One worker must be trained on and log into every system — credentials, UIs, and workflows for all 5</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-lbl">Constant Context Switching</div>
+      <div class="pain-desc">Every system switch breaks focus — the worker must mentally reset and reorient for each new environment</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-lbl">Up to 30 Min Physical Walk</div>
+      <div class="pain-desc">Imaging records require leaving the desk, walking across the hospital, waiting, and walking back — every single time</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-lbl">Archival Delays Hours–Days</div>
+      <div class="pain-desc">Records from 1990 require calling out, waiting for physical boxes to arrive, then manually searching through them</div>
+    </div>
   </div>
 
   <div class="wordmark">datavant</div>

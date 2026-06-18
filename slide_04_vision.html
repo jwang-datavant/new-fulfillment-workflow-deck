@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slide 4 — Proposed Hypothesis (Designer)</title>
+<title>Slide 4 — Proposed Hypothesis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -11,8 +11,8 @@
 :root {
   --primary: #2945f0; --body: #020202; --dimmed: #687382;
   --border: #c2c7ce; --surf: #f2f3f8;
-  --new-green: #1a7f4b; --new-lt: #f0fdf4; --new-border: #22c55e;
-  --digital: #2945f0; --onsite: #1a1a2e; --remote: #374151;
+  --green: #1a7f4b; --green-lt: #f0fdf4; --green-chip: #22c55e;
+  --cerner: #1e3a5f; --epic: #1a1a2e; --batch: #374151;
 }
 body {
   font-family: 'Geist', sans-serif; background: #0d0d1a;
@@ -24,83 +24,101 @@ body {
   width: 960px; height: 540px; background: #fff; position: relative;
   border-radius: 4px; box-shadow: 0 8px 48px rgba(0,0,0,0.55);
   overflow: hidden; padding: 18px 24px 10px;
-  display: flex; flex-direction: column; gap: 6px;
+  display: flex; flex-direction: column; gap: 7px;
 }
-.slide-lbl { font-size: 10px; color: var(--primary); }
-.h1 { font-size: 18px; font-weight: 600; color: var(--body); line-height: 1.2; }
-.subtitle { font-size: 10px; color: var(--dimmed); line-height: 1.5; border-left: 3px solid var(--primary); padding-left: 9px; }
+.slide-lbl { font-size: 10px; color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; }
+.h1 { font-size: 17px; font-weight: 600; color: var(--body); line-height: 1.2; }
+.subtitle { font-size: 9.5px; color: var(--dimmed); line-height: 1.5; border-left: 3px solid var(--primary); padding-left: 8px; }
 .subtitle strong { color: var(--primary); font-weight: 600; }
 
-/* Example strip */
-.example-strip {
+/* Before strip */
+.before-strip {
+  flex-shrink: 0; background: #fafafa; border: 1px solid #e5e7eb; border-radius: 4px;
+  padding: 5px 12px; display: flex; align-items: center; gap: 10px;
+}
+.before-tag { font-size: 9px; font-weight: 700; color: #9ca3af; letter-spacing: 0.08em; text-transform: uppercase; flex-shrink: 0; }
+.before-flow { display: flex; align-items: center; gap: 5px; flex: 1; }
+.bf-step {
+  font-size: 8px; color: #9ca3af; background: #f3f4f6; border: 1px solid #e5e7eb;
+  border-radius: 3px; padding: 2px 7px; text-decoration: line-through; white-space: nowrap;
+}
+.bf-arr { font-size: 9px; color: #d1d5db; }
+.before-pain {
+  font-size: 8px; color: #dc2626; font-weight: 600; background: #fef2f2;
+  border: 1px solid #fecaca; border-radius: 3px; padding: 2px 8px; flex-shrink: 0; white-space: nowrap;
+}
+
+/* Main flow */
+.flow-row { flex: 1; min-height: 0; display: flex; gap: 0; align-items: stretch; }
+
+/* Patient column */
+.patients-col { width: 105px; flex-shrink: 0; display: flex; flex-direction: column; gap: 4px; justify-content: center; padding-right: 4px; }
+.patients-lbl { font-size: 8px; font-weight: 600; color: var(--dimmed); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1px; }
+.patient-card {
   background: var(--surf); border: 1px solid var(--border); border-radius: 4px;
-  padding: 8px 14px; display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+  padding: 4px 7px; flex: 1;
 }
-.ex-label { font-size: 9px; font-weight: 600; color: var(--dimmed); white-space: nowrap; flex-shrink: 0; }
-.ex-div { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
-.ex-sys {
-  font-size: 8px; display: flex; flex-direction: column; gap: 3px;
-  background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px;
-}
-.ex-sys-name { font-weight: 600; color: var(--body); }
-.ex-sys-tasks { display: flex; gap: 3px; }
-.tp { font-size: 7.5px; padding: 1px 5px; border-radius: 3px; font-weight: 500; white-space: nowrap; }
-.tp.d { background: #dbeafe; color: #1e40af; }
-.tp.m { background: #fef9c3; color: #92400e; }
+.pc-name { font-size: 8.5px; font-weight: 600; color: var(--body); }
+.pc-sys  { font-size: 7.5px; color: var(--dimmed); margin-top: 1px; }
 
-/* Fulfillment entry node */
-.entry-row { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.entry-node {
-  background: var(--body); color: #fff;
-  border-radius: 20px; padding: 6px 18px;
-  font-size: 11px; font-weight: 600; flex-shrink: 0;
+/* Engine */
+.engine-wrap { flex-shrink: 0; display: flex; align-items: center; }
+.arr { font-size: 16px; color: var(--border); padding: 0 7px; }
+.engine-box {
+  width: 118px; background: var(--body); border-radius: 8px;
+  padding: 12px 11px; display: flex; flex-direction: column; gap: 5px; align-items: center; text-align: center;
 }
-.entry-label { font-size: 10px; color: var(--dimmed); font-style: italic; }
-.entry-arr { font-size: 16px; color: var(--border); }
-
-/* Parallel container — the hero */
-.parallel-wrap { flex: 1; min-height: 0; position: relative; }
-.parallel-container {
-  height: 100%;
-  border: 2px dashed var(--new-border); border-radius: 6px;
-  padding: 18px 12px 10px;
-  display: flex; flex-direction: column; gap: 6px;
-  position: relative;
-}
-.par-pill {
-  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: var(--new-green); color: #fff;
-  font-size: 10px; font-weight: 700; padding: 3px 16px; border-radius: 999px;
-  letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
-}
-.par-track {
-  flex: 1; border-radius: 5px; padding: 11px 16px;
-  display: flex; flex-direction: column; gap: 3px; justify-content: center;
-}
-.pt-digital { background: var(--digital); }
-.pt-onsite  { background: var(--onsite); }
-.pt-remote  { background: var(--remote); }
-.pt-title { font-size: 13px; font-weight: 600; color: #fff; }
-.pt-desc  { font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px; }
-.par-note {
-  font-size: 10px; font-weight: 600; color: var(--new-green);
-  text-align: center; flex-shrink: 0;
+.engine-name { font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 0.02em; line-height: 1.2; }
+.engine-desc { font-size: 7.5px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+.engine-chip {
+  font-size: 7.5px; font-weight: 600; color: var(--green-chip);
+  background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 3px; padding: 2px 6px; white-space: nowrap;
 }
 
-/* Benefits bar */
-.benefits-bar {
-  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 7px; flex-shrink: 0;
+/* Processors */
+.processors-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.proc-lane {
+  flex: 1; border-radius: 5px; padding: 9px 13px;
+  display: flex; align-items: center; gap: 12px; min-height: 0;
 }
+.pl-cerner { background: var(--cerner); }
+.pl-epic   { background: var(--epic); }
+.pl-batch  { background: var(--batch); }
+
+.proc-info { width: 125px; flex-shrink: 0; display: flex; flex-direction: column; gap: 2px; }
+.proc-name { font-size: 12px; font-weight: 700; color: #fff; }
+.proc-spec { font-size: 8px; color: rgba(255,255,255,0.5); line-height: 1.35; font-style: italic; }
+
+.proc-tasks { flex: 1; display: flex; flex-wrap: wrap; gap: 4px; align-content: center; }
+.chip {
+  font-size: 7.5px; font-weight: 500; color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 3px; padding: 3px 7px; white-space: nowrap;
+}
+.chip.hi {
+  background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4);
+  font-size: 8.5px; font-weight: 600; padding: 4px 10px;
+}
+
+.proc-outcome {
+  width: 95px; flex-shrink: 0; border-left: 2px solid rgba(255,255,255,0.18);
+  padding-left: 10px; font-size: 8.5px; color: rgba(255,255,255,0.65); line-height: 1.4;
+}
+.proc-outcome strong { color: #fff; display: block; margin-bottom: 1px; }
+
+/* Benefits */
+.benefits-bar { flex-shrink: 0; display: flex; gap: 6px; }
 .bc {
-  border-radius: 4px; padding: 8px 11px; display: flex; flex-direction: column; gap: 2px;
-  background: var(--surf); border: 1px solid var(--border); border-left-width: 3px;
+  flex: 1; background: var(--surf); border: 1px solid var(--border); border-left: 3px solid;
+  border-radius: 4px; padding: 6px 10px; display: flex; flex-direction: column; gap: 1px;
 }
-.bc.speed    { border-left-color: var(--primary); }   .bc.speed    .bc-lbl { color: var(--primary); }
-.bc.quality  { border-left-color: #1a1a2e; }           .bc.quality  .bc-lbl { color: var(--body); }
-.bc.cost     { border-left-color: #9ca3af; }           .bc.cost     .bc-lbl { color: #6b7280; }
-.bc.visibility { border-left-color: var(--new-green); } .bc.visibility .bc-lbl { color: var(--new-green); }
-.bc-lbl  { font-size: 10.5px; font-weight: 600; }
-.bc-desc { font-size: 9px; color: var(--body); line-height: 1.45; }
+.bc-flow  { border-left-color: var(--primary); } .bc-flow  .bc-lbl { color: var(--primary); }
+.bc-batch { border-left-color: var(--green); }   .bc-batch .bc-lbl { color: var(--green); }
+.bc-spec  { border-left-color: #1a1a2e; }        .bc-spec  .bc-lbl { color: var(--body); }
+.bc-par   { border-left-color: #9ca3af; }        .bc-par   .bc-lbl { color: #6b7280; }
+.bc-lbl  { font-size: 9.5px; font-weight: 600; }
+.bc-desc { font-size: 8px; color: var(--dimmed); line-height: 1.35; }
 
 .wordmark { position: absolute; bottom: 7px; right: 18px; font-size: 10px; color: var(--dimmed); }
 </style>
@@ -109,63 +127,123 @@ body {
 <div class="page-label">Slide 4 — Proposed Hypothesis</div>
 <div class="slide">
 
-  <div style="display:flex;flex-direction:column;gap:3px;">
+  <div style="display:flex;flex-direction:column;gap:3px;flex-shrink:0;">
     <div class="slide-lbl">Proposed Hypothesis</div>
-    <div class="h1">Same Request — Parallel Tasks, Right Worker, No Repeated Steps</div>
+    <div class="h1">One Engine. Specialized Processors. No Context Switching.</div>
     <div class="subtitle">
-      Bomi Kim's request generates <strong>7 independent fulfillment tasks</strong> across 5 systems. Instead of one worker touching each sequentially, each task is routed simultaneously to the right worker type — <strong>digital, onsite, or remote</strong>.
+      The fulfillment engine <strong>aggregates tasks by type across all patients</strong> — so each processor works only what they're trained on, stays in one system all day, and completes work for 10 patients at once instead of one.
+      <strong> No login/logout. No walking to a different location. No switching between patients mid-task.</strong>
     </div>
   </div>
 
-  <div class="example-strip">
-    <div style="display:flex;flex-direction:column;gap:1px;flex-shrink:0;">
-      <div class="ex-label">Same request</div>
-      <div style="font-size:9.5px;color:var(--body);line-height:1.4;max-width:210px;"><strong>Bomi Kim</strong>, 01/01/1990 — same 5 systems, same tasks</div>
+  <div class="before-strip">
+    <div class="before-tag">Today</div>
+    <div class="before-flow">
+      <div class="bf-step">Login Epic (Pt 1)</div>
+      <div class="bf-arr">→</div>
+      <div class="bf-step">Switch to Cerner</div>
+      <div class="bf-arr">→</div>
+      <div class="bf-step">Request from Archival</div>
+      <div class="bf-arr">→</div>
+      <div class="bf-step">Login Epic (Pt 2), repeat</div>
+      <div class="bf-arr">→</div>
+      <div class="bf-step">Cerner (Pt 2)</div>
+      <div class="bf-arr">→</div>
+      <div class="bf-step">…</div>
     </div>
-    <div style="font-size:14px;color:var(--dimmed);flex-shrink:0;">→</div>
-    <div class="ex-label" style="flex-shrink:0;">Splits across 5 systems:</div>
-    <div class="ex-div"></div>
-    <div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;">
-      <div class="ex-sys"><div class="ex-sys-name">Epic <span style="font-weight:400;color:var(--dimmed)">2025–now</span></div><div class="ex-sys-tasks"><span class="tp d">↓ Radiology</span><span class="tp m">✋ Mammo</span></div></div>
-      <div class="ex-sys"><div class="ex-sys-name">Cerner <span style="font-weight:400;color:var(--dimmed)">2021–2025</span></div><div class="ex-sys-tasks"><span class="tp d">↓ Radiology</span><span class="tp m">✋ Mammo</span><span class="tp m">✋ Cardio</span></div></div>
-      <div class="ex-sys"><div class="ex-sys-name">PACS</div><div class="ex-sys-tasks"><span class="tp m">✋ MRI CD</span></div></div>
-      <div class="ex-sys"><div class="ex-sys-name">Iron Mtn</div><div class="ex-sys-tasks"><span class="tp m">✋ 1990–2021</span></div></div>
-      <div class="ex-sys"><div class="ex-sys-name">PM System</div><div class="ex-sys-tasks"><span class="tp m">✋ Bill</span></div></div>
-    </div>
+    <div class="before-pain">⚠ Context switching kills throughput</div>
   </div>
 
-  <div class="entry-row">
-    <div class="entry-node">Enters fulfillment</div>
-    <div class="entry-arr">↓</div>
-    <div class="entry-label">Each task routed once, to the right worker, simultaneously</div>
-  </div>
+  <div class="flow-row">
 
-  <div class="parallel-wrap">
-    <div class="parallel-container">
-      <div class="par-pill">All tracks run in PARALLEL</div>
+    <div class="patients-col">
+      <div class="patients-lbl">Requests</div>
+      <div class="patient-card"><div class="pc-name">Patient 1</div><div class="pc-sys">Epic · Cerner · Archival</div></div>
+      <div class="patient-card"><div class="pc-name">Patient 2</div><div class="pc-sys">Epic · Cerner</div></div>
+      <div class="patient-card"><div class="pc-name">Patient 3</div><div class="pc-sys">Cerner · Imaging</div></div>
+      <div class="patient-card"><div class="pc-name">Patient 4</div><div class="pc-sys">Epic · Archival</div></div>
+      <div class="patient-card" style="background:#fff;border-color:var(--border);"><div class="pc-name" style="color:var(--dimmed);">+ 6 more</div><div class="pc-sys">various systems</div></div>
+    </div>
 
-      <div class="par-track pt-digital">
-        <div class="pt-title">↓ Digital Fulfillment</div>
-        <div class="pt-desc">Integrations retrieve medical records automatically — Radiology from Epic &amp; Cerner</div>
+    <div class="engine-wrap">
+      <div class="arr">→</div>
+      <div class="engine-box">
+        <div class="engine-name">Fulfillment Engine</div>
+        <div class="engine-desc">Breaks down &amp; aggregates tasks by system + type</div>
+        <div class="engine-chip">Intelligent routing</div>
       </div>
-      <div class="par-track pt-onsite">
-        <div class="pt-title">✋ Manual Onsite</div>
-        <div class="pt-desc">Onsite specialist handles tasks requiring physical presence — Mammography, PACS (MRI CD)</div>
-      </div>
-      <div class="par-track pt-remote">
-        <div class="pt-title">✋ Manual Remote</div>
-        <div class="pt-desc">Remote / offshore worker handles paper and billing — Iron Mountain (1990–2021), PM System (Itemized Bill)</div>
+      <div class="arr">→</div>
+    </div>
+
+    <div class="processors-col">
+
+      <div class="proc-lane pl-cerner">
+        <div class="proc-info">
+          <div class="proc-name">Processor A</div>
+          <div class="proc-spec">Cerner-trained only<br>Single login, all day</div>
+        </div>
+        <div class="proc-tasks">
+          <div class="chip">Cerner · Pt 1</div>
+          <div class="chip">Cerner · Pt 2</div>
+          <div class="chip">Cerner · Pt 3</div>
+          <div class="chip">Cerner · Pt 6</div>
+          <div class="chip">Cerner · Pt 7</div>
+          <div class="chip">Cerner · Pt 9</div>
+          <div class="chip">+ 3 more</div>
+        </div>
+        <div class="proc-outcome"><strong>Stays in Cerner.</strong> Completes 9 patients without switching systems once.</div>
       </div>
 
-      <div class="par-note">No repeated steps — each task handled once, by the right worker for that task type</div>
+      <div class="proc-lane pl-epic">
+        <div class="proc-info">
+          <div class="proc-name">Processor B</div>
+          <div class="proc-spec">Epic-trained only<br>Single login, all day</div>
+        </div>
+        <div class="proc-tasks">
+          <div class="chip">Epic · Pt 1</div>
+          <div class="chip">Epic · Pt 2</div>
+          <div class="chip">Epic · Pt 4</div>
+          <div class="chip">Epic · Pt 5</div>
+          <div class="chip">Epic · Pt 8</div>
+          <div class="chip">+ 2 more</div>
+        </div>
+        <div class="proc-outcome"><strong>Stays in Epic.</strong> Handles 7 patients — no context switching, deep expertise.</div>
+      </div>
+
+      <div class="proc-lane pl-batch">
+        <div class="proc-info">
+          <div class="proc-name">Processor C</div>
+          <div class="proc-spec">Archival + Imaging<br>Auto-aggregated batch</div>
+        </div>
+        <div class="proc-tasks">
+          <div class="chip hi">Archival System batch · 10 patients</div>
+          <div class="chip">Imaging · Pt 3</div>
+          <div class="chip">Imaging · Pt 5</div>
+          <div class="chip">Imaging · Pt 8</div>
+        </div>
+        <div class="proc-outcome"><strong>One trip.</strong> Grabs archival records for 10 patients at once instead of going back throughout the day.</div>
+      </div>
+
     </div>
   </div>
 
   <div class="benefits-bar">
-    <div class="bc speed"><div class="bc-lbl">Speed</div><div class="bc-desc">All tasks start simultaneously — total time = slowest task, not sum of all</div></div>
-    <div class="bc quality"><div class="bc-lbl">Quality</div><div class="bc-desc">Each worker handles one task type — right tools, no context switching, fewer errors</div></div>
-    <div class="bc cost"><div class="bc-lbl">Cost</div><div class="bc-desc">Right worker, right task — standardized work is easier to train and price</div></div>
-    <div class="bc visibility"><div class="bc-lbl">Visibility</div><div class="bc-desc">Per-task time tracking reveals exactly where labor cost lives</div></div>
+    <div class="bc bc-flow">
+      <div class="bc-lbl">Stay in Flow</div>
+      <div class="bc-desc">Each processor works one system, one login — no interruptions or location changes</div>
+    </div>
+    <div class="bc bc-batch">
+      <div class="bc-lbl">Batch Efficiency</div>
+      <div class="bc-desc">Archival &amp; Imaging tasks aggregate automatically — one trip handles 10 patients at once</div>
+    </div>
+    <div class="bc bc-spec">
+      <div class="bc-lbl">Deep Specialization</div>
+      <div class="bc-desc">Train each processor on one system — faster throughput, fewer errors, easier QA</div>
+    </div>
+    <div class="bc bc-par">
+      <div class="bc-lbl">True Parallelism</div>
+      <div class="bc-desc">All processors run simultaneously — total time = slowest lane, not the sum of all</div>
+    </div>
   </div>
 
   <div class="wordmark">datavant</div>

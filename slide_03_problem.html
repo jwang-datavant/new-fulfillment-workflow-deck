@@ -117,6 +117,23 @@ body {
 .re-label { font-size: 7.5px; font-weight: 700; color: var(--red); text-align: center; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.3; }
 .re-sub   { font-size: 7px; color: var(--dimmed); text-align: center; line-height: 1.3; }
 
+/* Example strip */
+.example-strip {
+  background: var(--surf); border: 1px solid var(--border); border-radius: 4px;
+  padding: 7px 14px; display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+}
+.ex-label { font-size: 9px; font-weight: 600; color: var(--dimmed); white-space: nowrap; flex-shrink: 0; }
+.ex-div { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
+.ex-sys {
+  font-size: 8.5px; display: flex; flex-direction: column; gap: 3px;
+  background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px;
+}
+.ex-sys-name { font-weight: 600; color: var(--body); }
+.ex-sys-tasks { display: flex; gap: 3px; flex-wrap: wrap; }
+.tp { font-size: 7.5px; padding: 1px 5px; border-radius: 3px; font-weight: 500; white-space: nowrap; }
+.tp.d { background: #dbeafe; color: #1e40af; }
+.tp.m { background: #fef9c3; color: #92400e; }
+
 /* Pain bar */
 .pain-bar { flex-shrink: 0; display: flex; gap: 6px; }
 .pain-card {
@@ -143,18 +160,20 @@ body {
     </div>
   </div>
 
-  <div class="request-strip">
-    <div class="req-label">Example request</div>
-    <div class="req-patient">Bomi Kim, 01/01/1990</div>
-    <div class="req-desc">— Itemized bill, progress notes, radiology images, mammography (1990–present)</div>
-    <div class="req-div"></div>
-    <div class="req-label">Spans 5 systems:</div>
-    <div class="req-systems">
-      <div class="req-sys">Cerner</div>
-      <div class="req-sys">Epic</div>
-      <div class="req-sys">PM System</div>
-      <div class="req-sys">Imaging System</div>
-      <div class="req-sys">Archival System</div>
+  <div class="example-strip">
+    <div style="display:flex;flex-direction:column;gap:1px;flex-shrink:0;">
+      <div class="ex-label">Example request</div>
+      <div style="font-size:9.5px;color:var(--body);line-height:1.4;max-width:220px;"><strong>Bomi Kim</strong>, 01/01/1990 — Itemized Bill, MRI CD, Radiology, Progress notes, Mammography (1990–present)</div>
+    </div>
+    <div style="font-size:14px;color:var(--dimmed);flex-shrink:0;">→</div>
+    <div class="ex-label" style="flex-shrink:0;">Splits across 5 systems:</div>
+    <div class="ex-div"></div>
+    <div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;">
+      <div class="ex-sys"><div class="ex-sys-name">Epic <span style="font-weight:400;color:var(--dimmed)">2025–now</span></div><div class="ex-sys-tasks"><span class="tp d">↓ Radiology</span><span class="tp m">✋ Mammo</span></div></div>
+      <div class="ex-sys"><div class="ex-sys-name">Cerner <span style="font-weight:400;color:var(--dimmed)">2021–2025</span></div><div class="ex-sys-tasks"><span class="tp d">↓ Radiology</span><span class="tp m">✋ Mammo</span><span class="tp m">✋ Cardio</span></div></div>
+      <div class="ex-sys"><div class="ex-sys-name">Imaging System</div><div class="ex-sys-tasks"><span class="tp m">✋ MRI CD</span></div></div>
+      <div class="ex-sys"><div class="ex-sys-name">Archival System</div><div class="ex-sys-tasks"><span class="tp m">✋ 1990–2021</span></div></div>
+      <div class="ex-sys"><div class="ex-sys-name">PM System</div><div class="ex-sys-tasks"><span class="tp m">✋ Bill</span></div></div>
     </div>
   </div>
 

@@ -1,0 +1,8 @@
+*.pptx
+*.docx
+*.pdf
+*.png
+*.py
+_hybrid/
+_screenshots/
+docs/

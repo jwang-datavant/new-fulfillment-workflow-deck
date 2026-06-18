@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 1 — Cover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Geist', -apple-system, system-ui, sans-serif;
+  background: #0d0d1a;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 40px 24px 60px; gap: 12px;
+}
+.page-label { color: rgba(255,255,255,0.3); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+
+.slide {
+  width: 960px; height: 540px;
+  background: #000000;
+  position: relative; border-radius: 4px;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.7);
+  overflow: hidden; padding: 36px 48px 36px;
+  display: flex; flex-direction: column;
+}
+
+/* Orb — decorative right-side element matching Gracie PC deck */
+.orb {
+  position: absolute;
+  right: -60px; top: 50%; transform: translateY(-50%);
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #2945f0 0%, #091877 45%, #000 75%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Content layer */
+.wordmark {
+  font-size: 16px; font-weight: 600; color: #fff;
+  letter-spacing: -0.3px; flex-shrink: 0;
+}
+
+.content {
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  max-width: 580px; gap: 16px;
+}
+
+.deck-label {
+  font-size: 11px; font-weight: 500; color: #687382;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+
+.headline {
+  font-size: 42px; font-weight: 400; color: #ffffff;
+  line-height: 1.15; letter-spacing: -0.5px;
+}
+.headline strong { font-weight: 600; }
+
+.tagline {
+  font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.5);
+  line-height: 1.6; max-width: 460px;
+}
+
+.footer {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.date { font-size: 11px; color: #687382; }
+.dept { font-size: 11px; color: #687382; }
+</style>
+</head>
+<body>
+
+<div class="page-label">Slide 1 — Cover</div>
+
+<div class="slide">
+  <div class="orb"></div>
+
+  <div class="wordmark">datavant</div>
+
+  <div class="content">
+    <div class="deck-label">New Fulfillment Workflow · Proposed Hypothesis</div>
+    <div class="headline">
+      <strong>Intelligent ROI:</strong><br>
+      Building a Task-Based<br>Fulfillment Workflow
+    </div>
+    <div class="tagline">
+      How task-level routing — digital, onsite, and remote in parallel — can drive efficiency and cost out across 32M annual requests.
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="date">June 2026</div>
+    <div class="dept">HealthSource Platform · Product</div>
+  </div>
+</div>
+
+</body>
+</html>

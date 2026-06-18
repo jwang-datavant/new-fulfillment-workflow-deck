@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 5 — How It Will Work (Grace)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary: #2945f0; --body: #020202; --dimmed: #687382;
+  --border: #c2c7ce; --surf: #f8f9fa;
+  --navy: #1a1a2e; --teal: #1a7f4b; --teal-lt: #f0fdf4; --teal-bd: #86efac;
+  --purple: #7c3aed;
+}
+body {
+  font-family: 'Geist', sans-serif; background: #0d0d1a;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 40px 24px 60px; gap: 12px;
+}
+.page-label { color: rgba(255,255,255,0.3); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+.slide {
+  width: 960px; height: 540px; background: #fff; position: relative;
+  border-radius: 4px; box-shadow: 0 8px 48px rgba(0,0,0,0.55);
+  overflow: hidden; padding: 22px 24px 14px;
+  display: flex; flex-direction: column; gap: 0;
+}
+.slide-lbl { font-size: 10px; color: var(--primary); margin-bottom: 3px; }
+.h1 { font-size: 20px; font-weight: 600; color: var(--body); margin-bottom: 3px; letter-spacing: -0.2px; }
+.subtitle { font-size: 10px; color: var(--dimmed); line-height: 1.5; border-left: 3px solid var(--primary); padding-left: 9px; margin-bottom: 20px; }
+
+/* Main flow */
+.flow-row { display: flex; align-items: stretch; gap: 0; flex: 1; min-height: 0; }
+
+/* Flow arrow */
+.farr { display: flex; align-items: center; padding: 0 6px; color: var(--dimmed); font-size: 16px; flex-shrink: 0; }
+
+/* Intake node */
+.node-intake {
+  background: var(--surf); border: 1px solid var(--border); border-radius: 6px;
+  padding: 14px 14px; display: flex; flex-direction: column; justify-content: center;
+  width: 118px; flex-shrink: 0;
+}
+
+/* New boundary — wraps Task Engine + Tasks + Assembly */
+.new-boundary {
+  flex: 1; min-width: 0;
+  border: 2px dashed #93c5fd; border-radius: 8px;
+  padding: 14px 10px 20px; position: relative;
+  display: flex; align-items: stretch; gap: 0;
+}
+.boundary-label {
+  position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--primary); color: #fff;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 3px 14px; border-radius: 999px; white-space: nowrap;
+}
+
+/* Task Engine */
+.node-engine {
+  background: var(--navy); color: #fff; border-radius: 6px;
+  padding: 14px 14px; display: flex; flex-direction: column; justify-content: center;
+  width: 165px; flex-shrink: 0;
+}
+
+/* Tasks (digital + manual stacked) */
+.node-tasks { display: flex; flex-direction: column; gap: 6px; justify-content: center; width: 208px; flex-shrink: 0; }
+.task-digital {
+  flex: 1; background: var(--primary); border-radius: 5px;
+  padding: 10px 12px; display: flex; flex-direction: column; justify-content: center;
+}
+.task-manual {
+  flex: 1; background: #374151; border-radius: 5px;
+  padding: 10px 12px; display: flex; flex-direction: column; justify-content: center;
+}
+
+/* Assembly */
+.node-assembly {
+  background: var(--primary); color: #fff; border-radius: 6px;
+  padding: 14px 14px; display: flex; flex-direction: column; justify-content: center;
+  width: 150px; flex-shrink: 0;
+}
+
+/* QC and Delivery */
+.node-qc, .node-delivery {
+  background: var(--surf); border: 1px solid var(--border); border-radius: 6px;
+  padding: 14px 12px; display: flex; flex-direction: column; justify-content: center;
+  width: 100px; flex-shrink: 0;
+}
+
+/* Node text styles */
+.n-eyebrow {
+  font-size: 9px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.node-intake .n-eyebrow, .node-qc .n-eyebrow, .node-delivery .n-eyebrow { color: var(--dimmed); }
+.node-engine .n-eyebrow { color: rgba(255,255,255,0.5); }
+.task-digital .n-eyebrow, .task-manual .n-eyebrow { color: rgba(255,255,255,0.6); font-size: 8.5px; }
+.node-assembly .n-eyebrow { color: rgba(255,255,255,0.5); }
+
+.n-title { font-size: 13px; font-weight: 600; line-height: 1.25; }
+.node-intake .n-title, .node-qc .n-title, .node-delivery .n-title { color: var(--body); font-size: 12px; }
+.node-engine .n-title, .node-assembly .n-title { color: #fff; }
+.task-digital .n-title, .task-manual .n-title { color: #fff; font-size: 12px; }
+
+.n-desc { font-size: 10.5px; margin-top: 4px; line-height: 1.4; }
+.node-intake .n-desc, .node-qc .n-desc, .node-delivery .n-desc { color: var(--dimmed); }
+.node-engine .n-desc { color: rgba(255,255,255,0.7); }
+.node-assembly .n-desc { color: rgba(255,255,255,0.8); }
+.task-digital .n-desc, .task-manual .n-desc { color: rgba(255,255,255,0.75); font-size: 10px; }
+
+.n-note { font-size: 8.5px; margin-top: 5px; opacity: 0.45; font-style: italic; }
+.node-engine .n-note { color: #fff; }
+
+/* Foundation strip */
+.foundation {
+  background: var(--surf); border: 1px solid var(--border); border-radius: 5px;
+  padding: 10px 14px; margin-top: 14px; flex-shrink: 0;
+  display: flex; align-items: center; gap: 16px;
+}
+.fnd-label {
+  font-size: 9px; font-weight: 700; color: var(--dimmed);
+  text-transform: uppercase; letter-spacing: 0.8px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.fnd-items { display: flex; gap: 20px; flex: 1; }
+.fnd-item { display: flex; align-items: flex-start; gap: 6px; }
+.fnd-bar { width: 3px; border-radius: 2px; flex-shrink: 0; height: 28px; }
+.fb-blue   { background: var(--primary); }
+.fb-teal   { background: var(--teal); }
+.fb-amber  { background: #f59e0b; }
+.fnd-text {}
+.fnd-name { font-size: 10.5px; font-weight: 600; color: var(--body); line-height: 1.2; }
+.fnd-desc { font-size: 9px; color: var(--dimmed); line-height: 1.4; margin-top: 1px; }
+
+/* Registry note */
+.registry-note {
+  font-size: 8.5px; color: var(--dimmed); text-align: center; font-style: italic;
+  margin-top: 6px; flex-shrink: 0;
+}
+
+.wordmark { position: absolute; bottom: 7px; right: 18px; font-size: 10px; color: var(--dimmed); }
+</style>
+</head>
+<body>
+<div class="page-label">Slide 5 — How It Will Work</div>
+<div class="slide">
+
+  <div class="slide-lbl">Proposed Solution</div>
+  <div class="h1">How the Fulfillment Engine Works</div>
+  <div class="subtitle">The new workflow slots into the existing ROI pipeline between intake and QC. The Task Engine reads from a Record Location Registry to intelligently split each request and route tasks in parallel.</div>
+
+  <div class="flow-row">
+
+    <!-- Intake -->
+    <div class="node-intake">
+      <div class="n-eyebrow">Request Intake</div>
+      <div class="n-title">Turbo</div>
+      <div class="n-desc">Extracts fields, sorts to Site ID</div>
+    </div>
+
+    <div class="farr">→</div>
+
+    <!-- NEW BOUNDARY -->
+    <div class="new-boundary">
+
+      <!-- Task Engine -->
+      <div class="node-engine">
+        <div class="n-eyebrow">Fulfillment</div>
+        <div class="n-title">Task Engine</div>
+        <div class="n-desc">Splits request into task units. Routes each to digital or manual queue simultaneously.</div>
+        <div class="n-note">↑ reads from Record Location Registry</div>
+      </div>
+
+      <div class="farr" style="color:rgba(255,255,255,0.2)">→</div>
+
+      <!-- Tasks (digital + manual parallel) -->
+      <div class="node-tasks">
+        <div class="task-digital">
+          <div class="n-eyebrow">Digital</div>
+          <div class="n-title">Digital Tasks → Connections</div>
+          <div class="n-desc">API retrieves records; sends to HealthSource on success</div>
+        </div>
+        <div class="task-manual">
+          <div class="n-eyebrow">Manual</div>
+          <div class="n-title">Group Manual Tasks &amp; Assignment</div>
+          <div class="n-desc">Onsite specialist or remote worker picks up tasks</div>
+        </div>
+      </div>
+
+      <div class="farr">→</div>
+
+      <!-- Assembly -->
+      <div class="node-assembly">
+        <div class="n-eyebrow">Assembly</div>
+        <div class="n-title">Merge All Retrieved Documents</div>
+        <div class="n-desc">One complete request PDF assembled from all tasks and systems</div>
+      </div>
+
+      <div class="boundary-label">New Fulfillment Workflow</div>
+    </div>
+
+    <div class="farr">→</div>
+
+    <!-- QC -->
+    <div class="node-qc">
+      <div class="n-eyebrow">QC</div>
+      <div class="n-title">Verify Assist</div>
+      <div class="n-desc">Manual QC</div>
+    </div>
+
+    <div class="farr">→</div>
+
+    <!-- Delivery -->
+    <div class="node-delivery">
+      <div class="n-eyebrow">Delivery</div>
+      <div class="n-title">AutoFax</div>
+      <div class="n-desc">Fax, Mail, Electronic</div>
+    </div>
+
+  </div>
+
+  <div class="foundation">
+    <div class="fnd-label">05 — Foundation layer (runs across all above)</div>
+    <div class="fnd-items">
+      <div class="fnd-item">
+        <div class="fnd-bar fb-blue"></div>
+        <div class="fnd-text">
+          <div class="fnd-name">Audit Trails</div>
+          <div class="fnd-desc">Per-task record: system, worker, what retrieved, when. Powers compliance and dispute resolution.</div>
+        </div>
+      </div>
+      <div class="fnd-item">
+        <div class="fnd-bar fb-teal"></div>
+        <div class="fnd-text">
+          <div class="fnd-name">Data Instrumentation</div>
+          <div class="fnd-desc">Time-on-task by type, system, and worker — enables true labor cost measurement and automation targeting.</div>
+        </div>
+      </div>
+      <div class="fnd-item">
+        <div class="fnd-bar fb-amber"></div>
+        <div class="fnd-text">
+          <div class="fnd-name">Exception Handling</div>
+          <div class="fnd-desc">When digital retrieval fails, that task reroutes to manual without blocking other tasks in progress.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="registry-note">The Task Engine reads from the Record Location Registry — a health system map of which systems hold which record types and date ranges, and which are digitally eligible.</div>
+
+  <div class="wordmark">datavant</div>
+</div>
+</body>
+</html>

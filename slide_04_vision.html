@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 4 — Proposed Hypothesis (Designer)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary: #2945f0; --body: #020202; --dimmed: #687382;
+  --border: #c2c7ce; --surf: #f2f3f8;
+  --new-green: #1a7f4b; --new-lt: #f0fdf4; --new-border: #22c55e;
+  --digital: #2945f0; --onsite: #1a1a2e; --remote: #374151;
+}
+body {
+  font-family: 'Geist', sans-serif; background: #0d0d1a;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 40px 24px 60px; gap: 12px;
+}
+.page-label { color: rgba(255,255,255,0.3); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+.slide {
+  width: 960px; height: 540px; background: #fff; position: relative;
+  border-radius: 4px; box-shadow: 0 8px 48px rgba(0,0,0,0.55);
+  overflow: hidden; padding: 18px 24px 10px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.slide-lbl { font-size: 10px; color: var(--primary); }
+.h1 { font-size: 18px; font-weight: 600; color: var(--body); line-height: 1.2; }
+.subtitle { font-size: 10px; color: var(--dimmed); line-height: 1.5; border-left: 3px solid var(--primary); padding-left: 9px; }
+.subtitle strong { color: var(--primary); font-weight: 600; }
+
+/* Example strip */
+.example-strip {
+  background: var(--surf); border: 1px solid var(--border); border-radius: 4px;
+  padding: 8px 14px; display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+.ex-label { font-size: 9px; font-weight: 600; color: var(--dimmed); white-space: nowrap; flex-shrink: 0; }
+.ex-div { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
+.ex-sys {
+  font-size: 8px; display: flex; flex-direction: column; gap: 3px;
+  background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px;
+}
+.ex-sys-name { font-weight: 600; color: var(--body); }
+.ex-sys-tasks { display: flex; gap: 3px; }
+.tp { font-size: 7.5px; padding: 1px 5px; border-radius: 3px; font-weight: 500; white-space: nowrap; }
+.tp.d { background: #dbeafe; color: #1e40af; }
+.tp.m { background: #fef9c3; color: #92400e; }
+
+/* Fulfillment entry node */
+.entry-row { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.entry-node {
+  background: var(--body); color: #fff;
+  border-radius: 20px; padding: 6px 18px;
+  font-size: 11px; font-weight: 600; flex-shrink: 0;
+}
+.entry-label { font-size: 10px; color: var(--dimmed); font-style: italic; }
+.entry-arr { font-size: 16px; color: var(--border); }
+
+/* Parallel container — the hero */
+.parallel-wrap { flex: 1; min-height: 0; position: relative; }
+.parallel-container {
+  height: 100%;
+  border: 2px dashed var(--new-border); border-radius: 6px;
+  padding: 18px 12px 10px;
+  display: flex; flex-direction: column; gap: 6px;
+  position: relative;
+}
+.par-pill {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--new-green); color: #fff;
+  font-size: 10px; font-weight: 700; padding: 3px 16px; border-radius: 999px;
+  letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+}
+.par-track {
+  flex: 1; border-radius: 5px; padding: 11px 16px;
+  display: flex; flex-direction: column; gap: 3px; justify-content: center;
+}
+.pt-digital { background: var(--digital); }
+.pt-onsite  { background: var(--onsite); }
+.pt-remote  { background: var(--remote); }
+.pt-title { font-size: 13px; font-weight: 600; color: #fff; }
+.pt-desc  { font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px; }
+.par-note {
+  font-size: 10px; font-weight: 600; color: var(--new-green);
+  text-align: center; flex-shrink: 0;
+}
+
+/* Benefits bar */
+.benefits-bar {
+  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 7px; flex-shrink: 0;
+}
+.bc {
+  border-radius: 4px; padding: 8px 11px; display: flex; flex-direction: column; gap: 2px;
+  background: var(--surf); border: 1px solid var(--border); border-left-width: 3px;
+}
+.bc.speed    { border-left-color: var(--primary); }   .bc.speed    .bc-lbl { color: var(--primary); }
+.bc.quality  { border-left-color: #1a1a2e; }           .bc.quality  .bc-lbl { color: var(--body); }
+.bc.cost     { border-left-color: #9ca3af; }           .bc.cost     .bc-lbl { color: #6b7280; }
+.bc.visibility { border-left-color: var(--new-green); } .bc.visibility .bc-lbl { color: var(--new-green); }
+.bc-lbl  { font-size: 10.5px; font-weight: 600; }
+.bc-desc { font-size: 9px; color: var(--body); line-height: 1.45; }
+
+.wordmark { position: absolute; bottom: 7px; right: 18px; font-size: 10px; color: var(--dimmed); }
+</style>
+</head>
+<body>
+<div class="page-label">Slide 4 — Proposed Hypothesis</div>
+<div class="slide">
+
+  <div style="display:flex;flex-direction:column;gap:3px;">
+    <div class="slide-lbl">Proposed Hypothesis</div>
+    <div class="h1">Same Request — Parallel Tasks, Right Worker, No Repeated Steps</div>
+    <div class="subtitle">
+      Bomi Kim's request generates <strong>7 independent fulfillment tasks</strong> across 5 systems. Instead of one worker touching each sequentially, each task is routed simultaneously to the right worker type — <strong>digital, onsite, or remote</strong>.
+    </div>
+  </div>
+
+  <div class="example-strip">
+    <div style="display:flex;flex-direction:column;gap:1px;flex-shrink:0;">
+      <div class="ex-label">Same request</div>
+      <div style="font-size:9.5px;color:var(--body);line-height:1.4;max-width:210px;"><strong>Bomi Kim</strong>, 01/01/1990 — same 5 systems, same tasks</div>
+    </div>
+    <div style="font-size:14px;color:var(--dimmed);flex-shrink:0;">→</div>
+    <div class="ex-label" style="flex-shrink:0;">Splits across 5 systems:</div>
+    <div class="ex-div"></div>
+    <div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;">
+      <div class="ex-sys"><div class="ex-sys-name">Epic <span style="font-weight:400;color:var(--dimmed)">2025–now</span></div><div class="ex-sys-tasks"><span class="tp d">↓ Radiology</span><span class="tp m">✋ Mammo</span></div></div>
+      <div class="ex-sys"><div class="ex-sys-name">Cerner <span style="font-weight:400;color:var(--dimmed)">2021–2025</span></div><div class="ex-sys-tasks"><span class="tp d">↓ Radiology</span><span class="tp m">✋ Mammo</span><span class="tp m">✋ Cardio</span></div></div>
+      <div class="ex-sys"><div class="ex-sys-name">PACS</div><div class="ex-sys-tasks"><span class="tp m">✋ MRI CD</span></div></div>
+      <div class="ex-sys"><div class="ex-sys-name">Iron Mtn</div><div class="ex-sys-tasks"><span class="tp m">✋ 1990–2021</span></div></div>
+      <div class="ex-sys"><div class="ex-sys-name">PM System</div><div class="ex-sys-tasks"><span class="tp m">✋ Bill</span></div></div>
+    </div>
+  </div>
+
+  <div class="entry-row">
+    <div class="entry-node">Enters fulfillment</div>
+    <div class="entry-arr">↓</div>
+    <div class="entry-label">Each task routed once, to the right worker, simultaneously</div>
+  </div>
+
+  <div class="parallel-wrap">
+    <div class="parallel-container">
+      <div class="par-pill">All tracks run in PARALLEL</div>
+
+      <div class="par-track pt-digital">
+        <div class="pt-title">↓ Digital Fulfillment</div>
+        <div class="pt-desc">Integrations retrieve medical records automatically — Radiology from Epic &amp; Cerner</div>
+      </div>
+      <div class="par-track pt-onsite">
+        <div class="pt-title">✋ Manual Onsite</div>
+        <div class="pt-desc">Onsite specialist handles tasks requiring physical presence — Mammography, PACS (MRI CD)</div>
+      </div>
+      <div class="par-track pt-remote">
+        <div class="pt-title">✋ Manual Remote</div>
+        <div class="pt-desc">Remote / offshore worker handles paper and billing — Iron Mountain (1990–2021), PM System (Itemized Bill)</div>
+      </div>
+
+      <div class="par-note">No repeated steps — each task handled once, by the right worker for that task type</div>
+    </div>
+  </div>
+
+  <div class="benefits-bar">
+    <div class="bc speed"><div class="bc-lbl">Speed</div><div class="bc-desc">All tasks start simultaneously — total time = slowest task, not sum of all</div></div>
+    <div class="bc quality"><div class="bc-lbl">Quality</div><div class="bc-desc">Each worker handles one task type — right tools, no context switching, fewer errors</div></div>
+    <div class="bc cost"><div class="bc-lbl">Cost</div><div class="bc-desc">Right worker, right task — standardized work is easier to train and price</div></div>
+    <div class="bc visibility"><div class="bc-lbl">Visibility</div><div class="bc-desc">Per-task time tracking reveals exactly where labor cost lives</div></div>
+  </div>
+
+  <div class="wordmark">datavant</div>
+</div>
+</body>
+</html>

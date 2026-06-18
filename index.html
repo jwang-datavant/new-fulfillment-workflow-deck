@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Fulfillment Workflow — Deck Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Design system tokens ─────────────────────────────────────────────
+   Source: Datavant DART — design-system-reference/foundations/tokens.md
+   Font:   Geist · Base: 16px
+   Primary: dv-blue/600 = #2945f0
+   Body text: gray/900 = #020202
+   Dimmed: gray/600 = #687382
+   Border: gray/300 = #c2c7ce
+   Surface: gray/100 = #f2f3f8
+   Success: green/600 = #2e6d57
+──────────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --dv-blue-600: #2945f0;
+  --dv-blue-100: #eceefe;
+  --dv-blue-900: #091877;
+  --gray-100:    #f2f3f8;
+  --gray-300:    #c2c7ce;
+  --gray-600:    #687382;
+  --gray-900:    #020202;
+  --green-600:   #2e6d57;
+  --green-50:    #eefbf2;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Geist', -apple-system, system-ui, sans-serif;
+  background: #0d0d1a;
+  color: var(--gray-900);
+  padding: 48px 32px 80px;
+  min-height: 100vh;
+}
+
+.deck-header {
+  max-width: 1000px; margin: 0 auto 32px;
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.deck-title { font-size: 20px; font-weight: 600; color: #fff; letter-spacing: -0.3px; }
+.deck-meta  { font-size: 12px; color: var(--gray-600); }
+
+.slide-nav {
+  max-width: 1000px; margin: 0 auto 36px;
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.nav-pill {
+  font-size: 12px; font-weight: 500;
+  padding: 5px 14px; border-radius: 99px;
+  background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.09);
+  cursor: pointer; text-decoration: none; transition: all 0.15s;
+}
+.nav-pill:hover {
+  background: rgba(41,69,240,0.18); color: #fff;
+  border-color: rgba(41,69,240,0.45);
+}
+
+.slide-section { max-width: 1000px; margin: 0 auto 52px; }
+.slide-meta {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+}
+.slide-num  { font-size: 10px; font-weight: 600; color: var(--gray-600); letter-spacing: 1.5px; text-transform: uppercase; }
+.slide-dot  { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.12); }
+.slide-name { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* Iframe wrapper clips to 960×540 and offsets the body padding + page-label
+   that lives above each slide in the standalone HTML files.
+   Body padding-top = 40px, page-label ≈ 14px, gap ≈ 14px → offset = 68px.
+   iframe height = 540 + 68 = 608px so the full slide is captured. */
+.iframe-wrap {
+  width: 960px; height: 540px;
+  border-radius: 6px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3), 0 12px 48px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+}
+.iframe-wrap iframe {
+  width: 960px; height: 608px;
+  border: none; display: block;
+  transform: translateY(-68px);
+  pointer-events: all;
+}
+
+.deck-divider {
+  max-width: 1000px; margin: 0 auto 52px;
+  border: none; border-top: 1px solid rgba(255,255,255,0.05);
+}
+.deck-footer {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  font-size: 10px; color: rgba(255,255,255,0.18);
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05);
+}
+</style>
+</head>
+<body>
+
+<div class="deck-header">
+  <div class="deck-title">Intelligent ROI: Building a Task-Based Fulfillment Workflow</div>
+  <div class="deck-meta">6 slides · June 2026 · HealthSource Platform</div>
+</div>
+
+<div class="slide-nav">
+  <a class="nav-pill" href="#s1">01 · Cover</a>
+  <a class="nav-pill" href="#s2">02 · ROI North Star</a>
+  <a class="nav-pill" href="#s3">03 · The Problem</a>
+  <a class="nav-pill" href="#s4">04 · Proposed Hypothesis</a>
+  <a class="nav-pill" href="#s5">05 · Proposed Solution</a>
+  <a class="nav-pill" href="#s6">06 · Roadmap</a>
+</div>
+
+<!-- 01 Cover -->
+<div class="slide-section" id="s1">
+  <div class="slide-meta">
+    <div class="slide-num">01</div><div class="slide-dot"></div>
+    <div class="slide-name">Cover</div>
+  </div>
+  <div class="iframe-wrap">
+    <iframe src="slide_01_cover.html" scrolling="no" title="Cover"></iframe>
+  </div>
+</div>
+<hr class="deck-divider">
+
+<!-- 02 ROI North Star -->
+<div class="slide-section" id="s2">
+  <div class="slide-meta">
+    <div class="slide-num">02</div><div class="slide-dot"></div>
+    <div class="slide-name">ROI North Star</div>
+  </div>
+  <div class="iframe-wrap">
+    <iframe src="slide_02_north_star.html" scrolling="no" title="ROI North Star"></iframe>
+  </div>
+</div>
+<hr class="deck-divider">
+
+<!-- 03 The Problem -->
+<div class="slide-section" id="s3">
+  <div class="slide-meta">
+    <div class="slide-num">03</div><div class="slide-dot"></div>
+    <div class="slide-name">The Problem</div>
+  </div>
+  <div class="iframe-wrap">
+    <iframe src="slide_03_problem.html" scrolling="no" title="The Problem"></iframe>
+  </div>
+</div>
+<hr class="deck-divider">
+
+<!-- 04 Proposed Hypothesis -->
+<div class="slide-section" id="s4">
+  <div class="slide-meta">
+    <div class="slide-num">04</div><div class="slide-dot"></div>
+    <div class="slide-name">Proposed Hypothesis</div>
+  </div>
+  <div class="iframe-wrap">
+    <iframe src="slide_04_vision.html" scrolling="no" title="Proposed Hypothesis"></iframe>
+  </div>
+</div>
+
+<!-- 05 Proposed Solution -->
+<div class="slide-section" id="s5">
+  <div class="slide-meta">
+    <div class="slide-num">05</div><div class="slide-dot"></div>
+    <div class="slide-name">Proposed Solution</div>
+  </div>
+  <div class="iframe-wrap">
+    <iframe src="slide_05_solution.html" scrolling="no" title="Proposed Solution"></iframe>
+  </div>
+</div>
+
+<!-- 06 Roadmap -->
+<div class="slide-section" id="s6">
+  <div class="slide-meta">
+    <div class="slide-num">06</div><div class="slide-dot"></div>
+    <div class="slide-name">Roadmap</div>
+  </div>
+  <div class="iframe-wrap">
+    <iframe src="slide_06_roadmap.html" scrolling="no" title="Roadmap"></iframe>
+  </div>
+</div>
+
+<div class="deck-footer">
+  <div>Datavant · HealthSource Platform · Product</div>
+  <div>June 2026 — Working draft</div>
+</div>
+
+</body>
+</html>

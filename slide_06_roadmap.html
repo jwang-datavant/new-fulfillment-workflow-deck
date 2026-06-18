@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 6 — Proposed Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary:     #2945f0;
+  --primary-800: #142592;
+  --primary-lt:  #eceefe;
+  --body:        #020202;
+  --dimmed:      #687382;
+  --border:      #c2c7ce;
+  --surf:        #f2f3f8;
+  --dark-navy:   #1d2024;
+  --green:       #2e6d57;
+  --green-lt:    #e6f2ee;
+  --amber:       #b45309;
+  --amber-lt:    #fef3c7;
+  --amber-bd:    #f59e0b;
+}
+body {
+  font-family: 'Geist', -apple-system, system-ui, sans-serif;
+  background: #0d0d1a;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 40px 24px 60px; gap: 12px;
+}
+.page-label { color: rgba(255,255,255,0.3); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+
+.slide {
+  width: 960px; height: 540px; background: #fff;
+  position: relative; border-radius: 4px;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.55);
+  overflow: hidden; padding: 16px 22px 16px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+
+/* ── Header ── */
+.slide-lbl { font-size: 10px; color: var(--primary); letter-spacing: 0.3px; }
+.h1 { font-size: 18px; font-weight: 600; color: var(--body); margin-top: 2px; }
+.subtitle {
+  font-size: 10px; color: var(--dimmed); line-height: 1.5;
+  border-left: 3px solid var(--amber-bd); padding-left: 9px; margin-top: 3px;
+}
+.subtitle strong { color: var(--body); font-weight: 600; }
+
+/* ── Roadmap row ── */
+.roadmap { flex: 1; min-height: 0; display: flex; align-items: stretch; gap: 0; }
+
+/* ── Gate connector ── */
+.gate {
+  width: 52px; flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; position: relative;
+}
+.gate-line { width: 2px; height: 20px; background: var(--amber-bd); }
+.gate-diamond {
+  width: 28px; height: 28px; background: var(--amber); border-radius: 4px;
+  transform: rotate(45deg); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.gate-diamond-inner {
+  transform: rotate(-45deg); font-size: 14px; line-height: 1;
+}
+.gate-text {
+  font-size: 7px; font-weight: 700; color: var(--amber); text-transform: uppercase;
+  letter-spacing: 0.4px; text-align: center; line-height: 1.4;
+  white-space: nowrap;
+}
+.gate-criterion {
+  font-size: 6.5px; color: var(--dimmed); text-align: center; line-height: 1.4;
+  max-width: 50px;
+}
+
+/* ── Phase cards ── */
+.phase {
+  flex: 1; border-radius: 8px; overflow: hidden;
+  display: flex; flex-direction: column; border: 1.5px solid var(--border);
+}
+
+/* Phase top bar */
+.phase-top {
+  padding: 12px 14px 10px; flex-shrink: 0;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.p1 .phase-top { background: var(--body); }
+.p2 .phase-top { background: var(--primary); }
+.p3 .phase-top { background: var(--primary-lt); border-bottom: 1.5px dashed rgba(41,69,240,0.3); }
+
+.p3 { border: 1.5px dashed rgba(41,69,240,0.35); }
+
+.phase-eyebrow {
+  font-size: 8.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px;
+}
+.p1 .phase-eyebrow, .p2 .phase-eyebrow { color: rgba(255,255,255,0.45); }
+.p3 .phase-eyebrow { color: var(--dimmed); }
+
+.phase-title { font-size: 15px; font-weight: 600; line-height: 1.3; }
+.p1 .phase-title, .p2 .phase-title { color: #fff; }
+.p3 .phase-title { color: var(--primary-800); }
+
+/* Activities */
+.phase-body { flex: 1; padding: 10px 13px; display: flex; flex-direction: column; gap: 5px; min-height: 0; }
+
+.act-item {
+  display: flex; align-items: flex-start; gap: 7px;
+  font-size: 8.5px; color: var(--body); line-height: 1.5;
+}
+.act-dot {
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 4px;
+}
+.p1 .act-dot { background: var(--body); }
+.p2 .act-dot { background: var(--primary); }
+.p3 .act-dot { background: var(--primary-800); }
+
+/* Validation gate at bottom of each card */
+.phase-gate {
+  flex-shrink: 0; margin: 0 10px 10px;
+  border-radius: 5px; padding: 7px 10px;
+  background: var(--amber-lt); border: 1px solid rgba(245,158,11,0.45);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.pg-label {
+  font-size: 7px; font-weight: 700; color: var(--amber);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  display: flex; align-items: center; gap: 4px;
+}
+.pg-label::before { content: '◆'; font-size: 6px; }
+.pg-text { font-size: 8px; color: var(--amber); font-weight: 500; line-height: 1.45; }
+
+/* Phase 3 success state */
+.phase-success {
+  flex-shrink: 0; margin: 0 10px 10px;
+  border-radius: 5px; padding: 7px 10px;
+  background: var(--primary-lt); border: 1px solid rgba(41,69,240,0.3);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.ps-label {
+  font-size: 7px; font-weight: 700; color: var(--primary);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  display: flex; align-items: center; gap: 4px;
+}
+.ps-label::before { content: '✓'; font-size: 8px; }
+.ps-text { font-size: 8px; color: var(--primary-800); font-weight: 500; line-height: 1.45; }
+
+/* Conditional badge on p2/p3 */
+.cond-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 7px; font-weight: 600; color: var(--amber);
+  background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.35);
+  padding: 2px 7px; border-radius: 3px; margin-bottom: 2px; width: fit-content;
+}
+.cond-badge::before { content: '⚑'; font-size: 7px; }
+
+.wordmark { position: absolute; bottom: 7px; right: 18px; font-size: 10px; color: var(--dimmed); }
+</style>
+</head>
+<body>
+
+<div class="page-label">Slide 6 — Roadmap</div>
+
+<div class="slide">
+
+  <div>
+    <div class="slide-lbl">Roadmap</div>
+    <div class="h1">Proposed Plan: Validate Before We Scale</div>
+    <div class="subtitle" style="border-left-color:var(--primary);"><strong>Each phase is gated on validating labor cost savings.</strong> We do not advance to the next phase without confirming that the new fulfillment flow delivers efficient cost reduction.</div>
+  </div>
+
+  <div class="roadmap">
+
+    <!-- ── Phase 1: Q3 2026 ── -->
+    <div class="phase p1">
+      <div class="phase-top">
+        <div class="phase-eyebrow">Q3 2026 · Phase 1</div>
+        <div class="phase-title">Discovery,<br>Validation &amp;<br>Architecture</div>
+      </div>
+      <div class="phase-body">
+        <div class="act-item"><div class="act-dot"></div>Product &amp; stakeholder discovery — ops workers, site managers, health system partners</div>
+        <div class="act-item"><div class="act-dot"></div>Prototype task-based fulfillment flow; test with workers</div>
+        <div class="act-item"><div class="act-dot"></div>Architecture design — RCS data model, Task Engine, HealthSource integration points</div>
+        <div class="act-item"><div class="act-dot"></div>Define success metrics and validation framework for cost savings</div>
+        <div class="act-item"><div class="act-dot"></div>Identify pilot health system candidate for Phase 2</div>
+      </div>
+      <div class="phase-gate">
+        <div class="pg-label">Gate to Phase 2</div>
+        <div class="pg-text">Prototype &amp; discovery confirms: task-based parallel routing can reduce fulfillment labor cost per request</div>
+      </div>
+    </div>
+
+    <!-- Gate 1 -->
+    <div class="gate">
+      <div class="gate-line"></div>
+      <div class="gate-diamond"><div class="gate-diamond-inner">✓</div></div>
+      <div class="gate-line"></div>
+      <div class="gate-text">If<br>validated</div>
+      <div class="gate-criterion">hypothesis confirmed via prototyping</div>
+    </div>
+
+    <!-- ── Phase 2: Q4 2026 – Q1 2027 ── -->
+    <div class="phase p2">
+      <div class="phase-top">
+        <div class="cond-badge">Conditional on Phase 1 validation</div>
+        <div class="phase-eyebrow">Q4 2026 – Q1 2027 · Phase 2</div>
+        <div class="phase-title">MVP Build<br>&amp; Pilot</div>
+      </div>
+      <div class="phase-body">
+        <div class="act-item"><div class="act-dot"></div>Build Record Location Registry, Fulfillment Task Engine, Task Assignment UI/UX, Records Re-combination</div>
+        <div class="act-item"><div class="act-dot"></div>Live pilot with 1 health system — digital + manual tasks routed in parallel against real requests</div>
+        <div class="act-item"><div class="act-dot"></div>Instrument task-level time tracking to measure labor cost per task type</div>
+        <div class="act-item"><div class="act-dot"></div>Compare actual cost per request vs. sequential baseline</div>
+      </div>
+      <div class="phase-gate">
+        <div class="pg-label">Gate to Phase 3</div>
+        <div class="pg-text">Pilot data confirms: measurable reduction in labor cost per fulfillment request at 1 health system</div>
+      </div>
+    </div>
+
+    <!-- Gate 2 -->
+    <div class="gate">
+      <div class="gate-line"></div>
+      <div class="gate-diamond"><div class="gate-diamond-inner">✓</div></div>
+      <div class="gate-line"></div>
+      <div class="gate-text">If<br>validated</div>
+      <div class="gate-criterion">pilot results confirmed via live data</div>
+    </div>
+
+    <!-- ── Phase 3: Q2 2027+ ── -->
+    <div class="phase p3">
+      <div class="phase-top">
+        <div class="cond-badge">Conditional on Phase 2 validation</div>
+        <div class="phase-eyebrow">Q2 2027+ · Phase 3</div>
+        <div class="phase-title">Scale to<br>More Sites</div>
+      </div>
+      <div class="phase-body">
+        <div class="act-item"><div class="act-dot"></div>Onboard additional health systems — expand RCS to new site configurations</div>
+        <div class="act-item"><div class="act-dot"></div>Scale task routing infrastructure based on pilot learnings</div>
+        <div class="act-item"><div class="act-dot"></div>Refine task assignment UI/UX from worker feedback</div>
+        <div class="act-item"><div class="act-dot"></div>Measure aggregate cost savings across sites; build business case for full network rollout</div>
+      </div>
+      <div class="phase-success">
+        <div class="ps-label">Success State</div>
+        <div class="ps-text">Efficient fulfillment cost savings proven at scale — ready for full network rollout</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="wordmark">datavant</div>
+</div>
+
+</body>
+</html>

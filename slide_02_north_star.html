@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 2 — ROI North Star</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary:       #2945f0;
+  --primary-dark:  #102cd5;
+  --primary-light: #eceefe;
+  --body:          #020202;
+  --dimmed:        #687382;
+  --border:        #c2c7ce;
+  --surf-gray:     #f2f3f8;
+}
+body {
+  font-family: 'Geist', -apple-system, system-ui, sans-serif;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px 60px;
+  gap: 14px;
+}
+.label {
+  color: rgba(255,255,255,0.35);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* 16:9 slide at 960px */
+.slide {
+  width: 960px;
+  height: 540px;
+  background: #fff;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  padding: 28px 36px 22px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.slide-label { font-size: 10px; color: var(--primary); letter-spacing: 0.3px; margin-bottom: 2px; }
+.h1 { font-size: 22px; font-weight: 400; color: var(--body); line-height: 1.2; margin-bottom: 2px; }
+.sub { font-size: 12px; color: var(--dimmed); margin-bottom: 10px; }
+
+/* Pipeline */
+.pipeline-label { font-size: 9px; color: var(--dimmed); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 5px; }
+.pipeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 8px;
+}
+.step {
+  flex: 1;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9.5px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+}
+.arrow { font-size: 11px; color: var(--dimmed); padding: 0 2px; flex: none; }
+.step-gray    { background: var(--surf-gray); color: var(--dimmed); }
+.step-light   { background: var(--primary-light); color: var(--primary); }
+.step-primary { background: var(--primary); color: #fff; font-weight: 600; }
+
+.badges {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.badge-inflight {
+  background: var(--primary-light);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-size: 8.5px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  flex: 2.8;
+  text-align: center;
+}
+.badge-next {
+  background: var(--primary);
+  color: #fff;
+  font-size: 8.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 3px;
+  flex: 0.9;
+  text-align: center;
+}
+.badge-spacer { flex: 2.3; }
+
+hr { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+
+.closing {
+  font-size: 11px;
+  color: var(--dimmed);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* Stat cards */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  flex: 1;
+}
+.stat-card {
+  background: var(--surf-gray);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.stat-number {
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--primary);
+  line-height: 1.1;
+}
+.stat-desc {
+  font-size: 9.5px;
+  color: var(--body);
+  line-height: 1.5;
+}
+
+/* Highlight on the partial card */
+.stat-card.partial {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+.stat-card.partial .stat-number { color: #92400e; }
+.stat-card.partial .stat-desc { color: #333; }
+.partial-tag {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #b45309;
+  margin-bottom: 2px;
+}
+.time-compare {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 4px 0;
+}
+.tc-pill {
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 7px;
+}
+.tc-manual  { background: #e5e7eb; color: #374151; }
+.tc-partial { background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; }
+.tc-sep     { font-size: 9px; color: var(--dimmed); }
+
+.wordmark {
+  position: absolute;
+  bottom: 10px;
+  right: 22px;
+  font-size: 10px;
+  color: var(--dimmed);
+}
+</style>
+</head>
+<body>
+
+<div class="label">Slide 2 — ROI North Star</div>
+
+<div class="slide">
+  <div class="slide-label">ROI North Star</div>
+  <div class="h1">An Efficient, Cost-Effective ROI Process — Built Phase by Phase</div>
+  <div class="sub">Every phase reduces redundant labor and drives cost out. Phases 1–3 addressed logging and auth. Efficient fulfillment is the next — and largest — unlock.</div>
+
+  <div class="pipeline-label">The Request Lifecycle — Automating toward efficiency at every step</div>
+  <div class="pipeline">
+    <div class="step step-gray">INTAKE</div>
+    <div class="arrow">›</div>
+    <div class="step step-light">LOGGING</div>
+    <div class="arrow">›</div>
+    <div class="step step-light">AUTH<br>REVIEW</div>
+    <div class="arrow">›</div>
+    <div class="step step-primary">FULFILLMENT</div>
+    <div class="arrow">›</div>
+    <div class="step step-gray">QC</div>
+    <div class="arrow">›</div>
+    <div class="step step-gray">DELIVERY</div>
+  </div>
+
+  <div class="badges">
+    <div class="badge-inflight" style="flex:2.9;">In Flight — ROI Automation Phases 1–3 (Logging + Auth) · Piloting July 2026</div>
+    <div class="badge-next" style="flex:1.05;">NEXT · H2 2026</div>
+    <div class="badge-spacer" style="flex:2.05;"></div>
+  </div>
+
+  <hr>
+
+  <div class="closing">
+    Phases 1–3 lay the foundation — accurate, structured data at every request. Efficient fulfillment is what turns that foundation into cost out.
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-number">2 min → 50 sec</div>
+      <div class="stat-desc">processing time per request from Phases 1–3 — AI extraction reducing manual logging and auth work at scale</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number">32M requests</div>
+      <div class="stat-desc">processed in 2025 — every minute of fulfillment time eliminated across this volume = significant labor cost out</div>
+    </div>
+
+    <div class="stat-card" style="background:var(--primary-light);border-color:var(--primary);">
+      <div class="stat-number" style="color:var(--primary-dark);">Fulfillment</div>
+      <div style="font-size:8px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:var(--primary);margin-bottom:4px;">The next unlock</div>
+      <div class="stat-desc">The largest remaining source of manual labor in the request lifecycle — and the direct path to an efficient, cost-effective ROI process</div>
+    </div>
+  </div>
+
+  <div class="wordmark">datavant</div>
+</div>
+
+</body>
+</html>

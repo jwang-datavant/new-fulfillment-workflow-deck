@@ -47,8 +47,11 @@ body {
   margin-top: 1px;
 }
 .callout-text {}
-.c-title { font-size: 11px; font-weight: 600; color: var(--body); margin-bottom: 3px; }
-.c-desc  { font-size: 10px; color: var(--dimmed); line-height: 1.55; }
+.c-title { font-size: 11px; font-weight: 600; color: var(--body); margin-bottom: 8px; }
+.c-bullets { display: flex; flex-direction: column; gap: 6px; }
+.c-bullet { display: flex; gap: 8px; align-items: flex-start; font-size: 10.5px; color: var(--dimmed); line-height: 1.45; }
+.c-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--primary); flex-shrink: 0; margin-top: 5px; opacity: 0.5; }
+.c-bullet strong { color: var(--body); font-weight: 500; }
 
 /* Ask */
 .ask-bar {
@@ -76,21 +79,33 @@ body {
       <div class="callout-icon">1</div>
       <div class="callout-text">
         <div class="c-title">One request, many independent tasks</div>
-        <div class="c-desc">Fulfilling a request requires logging into multiple systems and sometimes physically retrieving records. Each system is a separate task — different credentials, different location, different skill. Today one person handles all of them, in sequence, one at a time.</div>
+        <div class="c-bullets">
+          <div class="c-bullet"><div class="c-dot"></div><div>Each request spans <strong>multiple systems</strong> — each requiring separate login, credentials, and context</div></div>
+          <div class="c-bullet"><div class="c-dot"></div><div>Some tasks require <strong>physical retrieval</strong> — leaving the desk, traveling onsite or coordinating off-site</div></div>
+          <div class="c-bullet"><div class="c-dot"></div><div>Today, <strong>one person handles all of them</strong> in sequence, one at a time</div></div>
+        </div>
       </div>
     </div>
     <div class="callout">
       <div class="callout-icon">2</div>
       <div class="callout-text">
         <div class="c-title">Digital and manual worked sequentially</div>
-        <div class="c-desc">Every request has digital components (EHR records retrievable via Connections) and manual components (onsite imaging, archival retrieval). Because we work them in sequence — digital first, then manual — manual tasks can't begin until digital is done. This creates partial fulfillment with no efficiency gain.</div>
+        <div class="c-bullets">
+          <div class="c-bullet"><div class="c-dot"></div><div>Requests have <strong>digital components</strong> (EHR records via Connections) and <strong>manual components</strong> (onsite imaging, archival)</div></div>
+          <div class="c-bullet"><div class="c-dot"></div><div>Manual tasks <strong>can't begin until digital is done</strong> — or vice versa</div></div>
+          <div class="c-bullet"><div class="c-dot"></div><div>Sequential execution creates <strong>repeat work, delay, and no efficiency gain</strong></div></div>
+        </div>
       </div>
     </div>
     <div class="callout">
       <div class="callout-icon">3</div>
       <div class="callout-text">
         <div class="c-title">Our hypothesis: complete fulfillment tasks in parallel</div>
-        <div class="c-desc">Split each request into discrete task units and route digital and manual simultaneously — Connections handles digital retrieval while specialists work manual tasks at the same time. Complete fulfillment, faster TAT, measurable cost savings, and visibility into where manual effort goes.</div>
+        <div class="c-bullets">
+          <div class="c-bullet"><div class="c-dot"></div><div>Split each request into task units — route <strong>digital and manual simultaneously</strong> to the right processor</div></div>
+          <div class="c-bullet"><div class="c-dot"></div><div><strong>Faster TAT</strong> — total time equals the slowest task, not the sum of all</div></div>
+          <div class="c-bullet"><div class="c-dot"></div><div><strong>Labor visibility</strong> — task-level data reveals where manual effort goes and what to automate next</div></div>
+        </div>
       </div>
     </div>
   </div>

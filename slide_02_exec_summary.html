@@ -11,9 +11,6 @@
 :root {
   --primary: #2945f0; --primary-lt: #eceefe; --primary-dark: #102cd5;
   --body: #020202; --dimmed: #687382; --border: #c2c7ce; --surf: #f2f3f8;
-  --red: #dc2626; --red-lt: #fff1f1; --red-bd: #fecaca;
-  --green: #059669; --green-lt: #f0fdf4; --green-bd: #a7f3d0;
-  --amber: #d97706;
 }
 body {
   font-family: 'Geist', -apple-system, sans-serif;
@@ -24,231 +21,80 @@ body {
 .slide {
   width: 960px; height: 540px; background: #fff; position: relative;
   border-radius: 4px; box-shadow: 0 8px 48px rgba(0,0,0,0.55);
-  overflow: hidden; padding: 18px 24px 13px;
-  display: flex; flex-direction: column; gap: 8px;
+  overflow: hidden; padding: 32px 44px 20px;
+  display: flex; flex-direction: column; gap: 0;
 }
 
-/* Header */
-.slide-lbl { font-size: 10px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
-.h1 { font-size: 17px; font-weight: 600; color: var(--body); line-height: 1.2; margin-bottom: 3px; }
-.sub { font-size: 9.5px; color: var(--dimmed); line-height: 1.5; border-left: 3px solid var(--primary); padding-left: 8px; }
+.slide-lbl { font-size: 10px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; margin-bottom: 6px; }
+.h1 { font-size: 22px; font-weight: 600; color: var(--body); line-height: 1.25; max-width: 720px; margin-bottom: 28px; }
 
-/* ── NOW vs CAN BE contrast strip ───────────────────────────────────────── */
-.contrast {
-  flex-shrink: 0;
-  border: 1px solid var(--border); border-radius: 5px; overflow: hidden;
-  display: flex; flex-direction: column;
+/* Three-beat narrative */
+.beats { flex: 1; min-height: 0; display: flex; gap: 0; }
+
+.beat {
+  flex: 1; display: flex; flex-direction: column;
+  padding-right: 36px; border-right: 1px solid var(--border);
+  margin-right: 36px;
 }
-.c-row {
-  display: flex; align-items: stretch;
-  border-bottom: 1px solid var(--border);
+.beat:last-child { padding-right: 0; border-right: none; margin-right: 0; }
+
+.beat-num {
+  font-size: 36px; font-weight: 300; color: var(--primary); opacity: 0.25;
+  line-height: 1; margin-bottom: 6px; letter-spacing: -1px;
 }
-.c-row:last-child { border-bottom: none; }
-
-.c-now, .c-be {
-  flex: 1; padding: 6px 12px;
-  display: flex; align-items: center; gap: 8px;
+.beat-title {
+  font-size: 13px; font-weight: 600; color: var(--body);
+  margin-bottom: 10px; line-height: 1.2;
 }
-.c-now { background: var(--red-lt); border-right: none; }
-.c-be  { background: var(--green-lt); }
-
-.c-label {
-  font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
-  flex-shrink: 0; white-space: nowrap;
+.beat-body {
+  font-size: 11px; color: var(--dimmed); line-height: 1.7; flex: 1;
 }
-.lbl-now { color: var(--red); }
-.lbl-be  { color: var(--green); }
-
-.c-text { font-size: 9px; color: var(--body); line-height: 1.35; }
-.c-text strong { font-weight: 600; }
-
-.c-mid {
-  flex-shrink: 0; width: 36px; background: var(--primary);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 13px;
-}
-
-/* ── Detailed panels ─────────────────────────────────────────────────────── */
-.panels { flex: 1; min-height: 0; display: flex; gap: 0; }
-.panel { display: flex; flex-direction: column; overflow: hidden; }
-.panel-l { flex: 0 0 43%; padding-right: 15px; }
-.panel-r { flex: 1; padding-left: 15px; border-left: 1px solid var(--border); }
-
-.panel-hd {
-  font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
-  padding: 2px 8px; border-radius: 2px; width: fit-content; margin-bottom: 7px;
-}
-.hd-now { background: var(--red-lt); color: var(--red); }
-.hd-be  { background: var(--green-lt); color: var(--green); }
-
-/* Mini sequential flow */
-.seq-flow {
-  display: flex; align-items: center; gap: 2px; flex-wrap: nowrap;
-  background: var(--surf); border: 1px solid var(--border); border-radius: 3px;
-  padding: 4px 7px; margin-bottom: 8px; overflow: hidden;
-}
-.seq-person { font-size: 7px; font-weight: 600; color: var(--dimmed); white-space: nowrap; flex-shrink: 0; }
-.seq-arr { font-size: 8px; color: var(--border); flex-shrink: 0; }
-.seq-sys { font-size: 6.5px; font-weight: 600; border-radius: 2px; padding: 2px 4px; white-space: nowrap; flex-shrink: 0; }
-.ss-d { background: #dbeafe; color: #1e3a8a; }
-.ss-p { background: #fce7f3; color: #9d174d; }
-.ss-a { background: #f3e8ff; color: #6b21a8; }
-
-/* Pain points */
-.points { display: flex; flex-direction: column; gap: 4px; flex: 1; }
-.point { display: flex; align-items: flex-start; gap: 5px; font-size: 8.5px; color: var(--body); line-height: 1.4; }
-.pt-icon { font-size: 7.5px; color: var(--red); flex-shrink: 0; margin-top: 2px; }
-
-/* Parallel mini-flow */
-.par-flow { flex-shrink: 0; margin-bottom: 7px; }
-.par-start {
-  background: var(--primary); color: #fff; border-radius: 3px;
-  padding: 4px 10px; font-size: 8.5px; font-weight: 600; text-align: center;
-}
-.fork { position: relative; height: 10px; }
-.fork::before { content:''; position:absolute; left:50%; top:0; width:1px; height:5px; background:var(--primary); transform:translateX(-50%); }
-.fork::after  { content:''; position:absolute; left:7%; top:5px; width:86%; height:1px; background:var(--primary); }
-.fork-ticks { position:relative; height:5px; }
-.tick { position:absolute; width:1px; height:5px; background:var(--primary); top:0; }
-.t1{left:7%;} .t2{left:36%;} .t3{left:64%;} .t4{left:93%;}
-.par-tracks { display:flex; gap:3px; }
-.par-task {
-  flex:1; border-radius:3px; padding:4px 3px;
-  display:flex; flex-direction:column; align-items:center; gap:2px;
-  font-size:7.5px; font-weight:600; text-align:center; border:1.5px solid;
-}
-.par-badge { font-size:6px; font-weight:600; padding:1px 3px; border-radius:2px; letter-spacing:0.2px; }
-.t-d { border-color:var(--primary); color:var(--primary); background:rgba(41,69,240,0.06); }
-.t-d .par-badge { background:rgba(41,69,240,0.12); color:var(--primary); }
-.t-o { border-color:#0891b2; color:#0891b2; background:#ecfeff; }
-.t-o .par-badge { background:#cffafe; color:#0891b2; }
-.t-r { border-color:#7c3aed; color:#7c3aed; background:#faf5ff; }
-.t-r .par-badge { background:#ede9fe; color:#7c3aed; }
-.merge { position:relative; height:10px; }
-.merge::before { content:''; position:absolute; left:7%; top:0; width:86%; height:1px; background:var(--primary); }
-.merge::after  { content:''; position:absolute; left:50%; top:0; width:1px; height:10px; background:var(--primary); transform:translateX(-50%); }
-.par-end {
-  background:var(--green-lt); border:1.5px solid var(--green);
-  border-radius:3px; padding:4px 10px;
-  font-size:8.5px; font-weight:600; color:var(--green); text-align:center;
-}
-
-/* Benefits */
-.benefits { display:flex; flex-direction:column; gap:3px; flex:1; }
-.benefit { display:flex; align-items:flex-start; gap:5px; font-size:8.5px; color:var(--body); line-height:1.4; }
-.b-icon { color:var(--green); flex-shrink:0; font-size:8.5px; margin-top:1px; }
+.beat-body strong { color: var(--body); font-weight: 600; }
 
 /* Ask bar */
 .ask-bar {
-  flex-shrink:0; background:var(--primary-lt); border:1px solid var(--primary);
-  border-radius:4px; padding:6px 14px;
-  display:flex; align-items:center; gap:10px;
+  flex-shrink: 0; margin-top: 24px;
+  background: var(--primary); border-radius: 4px; padding: 10px 18px;
+  display: flex; align-items: center; gap: 12px;
 }
-.ask-lbl { font-size:9px; font-weight:700; color:var(--primary-dark); text-transform:uppercase; letter-spacing:0.07em; flex-shrink:0; }
-.ask-div { width:1px; height:18px; background:var(--primary); opacity:0.25; flex-shrink:0; }
-.ask-text { font-size:8.5px; color:var(--primary-dark); line-height:1.5; }
-.ask-text strong { font-weight:600; }
+.ask-lbl { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; flex-shrink: 0; }
+.ask-div { width: 1px; height: 16px; background: rgba(255,255,255,0.25); flex-shrink: 0; }
+.ask-text { font-size: 10px; color: #fff; line-height: 1.5; }
+.ask-text strong { font-weight: 600; }
 
-.wordmark { position:absolute; bottom:6px; right:18px; font-size:10px; color:var(--dimmed); }
+.wordmark { position: absolute; bottom: 8px; right: 22px; font-size: 10px; color: var(--border); }
 </style>
 </head>
 <body>
 <div class="page-label">Slide 2 — Executive Summary</div>
 <div class="slide">
 
-  <div>
-    <div class="slide-lbl">Executive Summary</div>
-    <div class="h1">Sequential ROI Fulfillment Is Holding Us Back — Here Is Our Hypothesis to Fix It</div>
-    <div class="sub">A complex patient request spans multiple systems and locations. Today, one operations staff member handles every task sequentially — context switching, traveling, waiting. We believe parallel task routing fundamentally changes this.</div>
-  </div>
+  <div class="slide-lbl">Executive Summary</div>
+  <div class="h1">Fulfilling a patient records request today requires one person to do multiple jobs — sequentially. There's a better way.</div>
 
-  <!-- NOW vs CAN BE strip -->
-  <div class="contrast">
-    <div class="c-row">
-      <div class="c-now">
-        <div class="c-label lbl-now">Now</div>
-        <div class="c-text"><strong>1 ops staff</strong> handles all tasks across 5 systems in sequence — each login, each walk to radiology, one at a time</div>
-      </div>
-      <div class="c-mid">→</div>
-      <div class="c-be">
-        <div class="c-label lbl-be">Can Be</div>
-        <div class="c-text"><strong>Specialized processors</strong> — one per task type — work in parallel simultaneously, each in the system they're trained on</div>
-      </div>
-    </div>
-    <div class="c-row">
-      <div class="c-now">
-        <div class="c-label lbl-now">Now</div>
-        <div class="c-text">TAT = <strong>sum of every task</strong> — one physical trip or delay holds up the entire request</div>
-      </div>
-      <div class="c-mid">→</div>
-      <div class="c-be">
-        <div class="c-label lbl-be">Can Be</div>
-        <div class="c-text">TAT = <strong>time of the slowest task only</strong> — everything else completes in parallel, no cascading delays</div>
-      </div>
-    </div>
-    <div class="c-row">
-      <div class="c-now">
-        <div class="c-label lbl-now">Now</div>
-        <div class="c-text"><strong>No task-level visibility</strong> — we can't measure where time goes, so we can't identify what to automate next</div>
-      </div>
-      <div class="c-mid">→</div>
-      <div class="c-be">
-        <div class="c-label lbl-be">Can Be</div>
-        <div class="c-text"><strong>Full labor measurement</strong> by task type and system — builds a direct roadmap to the next automation opportunity</div>
-      </div>
-    </div>
-  </div>
+  <div class="beats">
 
-  <!-- Detailed panels -->
-  <div class="panels">
-
-    <div class="panel panel-l">
-      <div class="panel-hd hd-now">Today — Why It Breaks Down</div>
-      <div class="seq-flow">
-        <div class="seq-person">👤 1 Ops Staff</div>
-        <div class="seq-arr">→</div>
-        <div class="seq-sys ss-d">Cerner</div>
-        <div class="seq-arr">→</div>
-        <div class="seq-sys ss-d">Epic</div>
-        <div class="seq-arr">→</div>
-        <div class="seq-sys ss-d">PM System</div>
-        <div class="seq-arr">→</div>
-        <div class="seq-sys ss-p">Imaging</div>
-        <div class="seq-arr">→</div>
-        <div class="seq-sys ss-a">Archival</div>
-      </div>
-      <div class="points">
-        <div class="point"><div class="pt-icon">✕</div><div>One request = <strong>multiple independent tasks</strong> across systems, skills, and physical locations</div></div>
-        <div class="point"><div class="pt-icon">✕</div><div><strong>Constant context switching</strong> — separate logins, separate UIs, mental reset between each system</div></div>
-        <div class="point"><div class="pt-icon">✕</div><div><strong>Physical travel</strong> required for imaging — leave desk, walk to radiology, wait up to 30 min, walk back</div></div>
-        <div class="point"><div class="pt-icon">✕</div><div>Digital + manual tasks are mixed — <strong>partial completion delivers no efficiency gain</strong></div></div>
-        <div class="point"><div class="pt-icon">✕</div><div>Quality suffers — context switching increases errors and makes audit trails unreliable</div></div>
+    <div class="beat">
+      <div class="beat-num">01</div>
+      <div class="beat-title">How it works today</div>
+      <div class="beat-body">
+        A single records request can span <strong>five separate systems</strong> — EHRs like Cerner and Epic, an imaging system, archival storage, and a billing system. One operations staff member handles all of them: logging in and out of each, physically <strong>walking to the radiology department</strong>, calling out for archival boxes. Every task is done one at a time, in sequence.
       </div>
     </div>
 
-    <div class="panel panel-r">
-      <div class="panel-hd hd-be">Hypothesis — What It Can Be</div>
-      <div class="par-flow">
-        <div class="par-start">Request → Task Engine — splits by system &amp; type, routes all at once</div>
-        <div class="fork"></div>
-        <div class="fork-ticks">
-          <div class="tick t1"></div><div class="tick t2"></div>
-          <div class="tick t3"></div><div class="tick t4"></div>
-        </div>
-        <div class="par-tracks">
-          <div class="par-task t-d">Cerner<div class="par-badge">digital</div></div>
-          <div class="par-task t-d">Epic<div class="par-badge">digital</div></div>
-          <div class="par-task t-o">Imaging<div class="par-badge">onsite</div></div>
-          <div class="par-task t-r">Archival<div class="par-badge">remote</div></div>
-        </div>
-        <div class="merge"></div>
-        <div class="par-end">Assembly → Complete Request Delivered</div>
+    <div class="beat">
+      <div class="beat-num">02</div>
+      <div class="beat-title">Why it's a problem</div>
+      <div class="beat-body">
+        Sequential fulfillment means <strong>total time = the sum of every task</strong>. One delay cascades into everything else. Constantly switching between systems degrades quality and creates errors. Worse, because we don't track tasks individually, <strong>we have no data</strong> on where time is actually going — which means we can't build a roadmap to automation.
       </div>
-      <div class="benefits">
-        <div class="benefit"><div class="b-icon">✓</div><div><strong>Specialization</strong> — each processor stays in one system all day, no context switching, deeper expertise</div></div>
-        <div class="benefit"><div class="b-icon">✓</div><div><strong>Eliminates partial fulfillment</strong> — tasks complete or reroute independently, nothing blocks the others</div></div>
-        <div class="benefit"><div class="b-icon">✓</div><div><strong>Better quality</strong> — single-system focus means fewer errors and a clean per-task audit trail</div></div>
-        <div class="benefit"><div class="b-icon">✓</div><div><strong>Task-level visibility</strong> — measure labor by type and system, pinpoint the highest-value automation targets</div></div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-num">03</div>
+      <div class="beat-title">Our hypothesis</div>
+      <div class="beat-body">
+        We believe we can <strong>split each request into parallel task units</strong> and route each to the right processor at the same time — digital retrieval via Connections, onsite tasks to a specialist, remote tasks to an offshore team. Total time drops to the <strong>slowest single task</strong>, quality improves through specialization, and we gain the task-level data needed to systematically automate.
       </div>
     </div>
 
@@ -257,7 +103,7 @@ body {
   <div class="ask-bar">
     <div class="ask-lbl">The Ask</div>
     <div class="ask-div"></div>
-    <div class="ask-text"><strong>Design + Ops</strong> to prototype and validate the parallel task hypothesis in Q3 · <strong>Eng (Connections + ROI Zone)</strong> scoping commitment for Q4 MVP build · We do not advance to build without validating first</div>
+    <div class="ask-text"><strong>Design + Ops</strong> resources to prototype and validate this hypothesis in Q3 — before committing to a build. <strong>Eng scoping</strong> commitment (Connections + ROI Zone) for Q4 if the hypothesis is confirmed.</div>
   </div>
 
   <div class="wordmark">datavant</div>

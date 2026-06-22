@@ -2,7 +2,10 @@
 *.docx
 *.pdf
 *.png
-*.py
 _hybrid/
 _screenshots/
 docs/
+# Keep export scripts; exclude old scratch files
+build_deck_v3.py
+build_deck_v4.py
+export_to_pptx.py
